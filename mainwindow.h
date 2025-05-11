@@ -27,7 +27,7 @@ public:
     void datafetchforward();
     void datafetchforroom();
     void datafetchforbed();
-
+    void datafetchforbills();
 private slots:
 
     void on_mainTabWidget_tabBarClicked(int index);

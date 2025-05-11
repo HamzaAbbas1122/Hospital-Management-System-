@@ -93,7 +93,8 @@ void objecttofile_doctor(Doctor**arrd,int dcount){
                 << arrd[i]->getDepartmentId() << " | "                // 7. Department ID (Professional ID)
                 << arrd[i]->getSpecialization().toStdString() << " | " // 8. Specialization (Professional details)
                 << arrd[i]->getExperience() << " | "                  // 9. Experience (Professional details)
-                << arrd[i]->getAvailability().join(",").toStdString() // 10. Availability (Schedule info)
+                << arrd[i]->getAvailability().join(",").toStdString()
+                <<arrd[i]->getfee()<<" | "                // 10. Availability (Schedule info)
                 << "\n";
 
         }
@@ -205,7 +206,8 @@ void objecttofile_doctorforedit(Doctor**arrd,int dcount){
                 << arrd[i]->getDepartmentId() << " | "                // 7. Department ID (Professional ID)
                 << arrd[i]->getSpecialization().toStdString() << " | " // 8. Specialization (Professional details)
                 << arrd[i]->getExperience() << " | "                  // 9. Experience (Professional details)
-                << arrd[i]->getAvailability().join(",").toStdString() // 10. Availability (Schedule info)
+                << arrd[i]->getAvailability().join(",").toStdString()
+                <<arrd[i]->getfee()<<" | "                 // 10. Availability (Schedule info)
                 << "\n";
 
 
@@ -345,7 +347,8 @@ Doctor** fetchdata_doctor() {
             int depid = field[6].trimmed().toInt();       // 7. depid
             QString specs = field[7].trimmed();           // 8. specs
             int experience = field[8].trimmed().toInt();  // 9. experience
-            QStringList avail = field[9].trimmed().split(","); // 10. availability
+            QStringList avail = field[9].trimmed().split(",");
+            int fee=field[10].trimmed().toInt();            // 10. availability
 
 
 
@@ -359,7 +362,8 @@ Doctor** fetchdata_doctor() {
                 depid,       // 7. depid
                 specs,       // 8. specs
                 experience,  // 9. experience
-                avail        // 10. availability
+                avail,
+                fee                // 10. availability
                 );
 
             qDebug()<<"data of patient "<<doctorcount<<" is fectehd "<<"\n";
@@ -419,7 +423,7 @@ void takeinput_patient(QString name, QString birthdate, QString gender, QString 
 
 void takeinput_doctor(QString name, QString dob, QString gender, QString address,
                       QString phone, int docid, int depid, QString specs,
-                      int experience, QStringList avail)
+                      int experience, QStringList avail,int fee)
 {
     qDebug() << "Doctor count is: " << doctorcount;
 
@@ -438,7 +442,8 @@ void takeinput_doctor(QString name, QString dob, QString gender, QString address
         depid,      // 7. depid
         specs,      // 8. specs
         experience, // 9. experience
-        avail       // 10. availability
+        avail,
+        fee        // 10. availability
         );
 
     qDebug() << "Doctor added: " << name;
@@ -1329,4 +1334,128 @@ Nurses** fetchDataNurses(int* nurseCount) {
 
     return arr;
 }
+void objectToFilebills(bills ** arr, int count) {
+    ofstream bills_ka_data_likhdo("billrecord.txt",ios::app);
+    qDebug()<<"bills count: "<<count<<"\n";
+    if (bills_ka_data_likhdo.is_open()) {
+        qDebug() << "bills file opened" << "\n";
+        for (int i = 0; i < count; i++) {
+            bills_ka_data_likhdo
 
+                << arr[i]->getbid() << "|"
+                << arr[i]->getpatid() << "|"
+                << arr[i]->getbdate().toStdString()<< "|"
+                << arr[i]->getdocfee()<< "|"
+                << arr[i]->getmedicinefee()<< "|"
+                << arr[i]->gettrtcost()<< "|"
+                << arr[i]->calculatebill() << "|"
+                << arr[i]->getbstat().toStdString() << "|"                 // 10. Availability (Schedule info)
+                << "\n";
+
+
+        }
+        qDebug()<<"file mn data chla gya"<<"\n";
+        bills_ka_data_likhdo.close();
+    }
+    else {
+        qDebug() << "bills file not opened" << "\n";
+    }
+
+}
+void objectToFilebillsForEditforedit(bills**arrd,int dcount){
+
+    ofstream bills_ka_data_likhdo("billrecord.txt");
+    qDebug()<<"bills count: "<<dcount<<"\n";
+    if (bills_ka_data_likhdo.is_open()) {
+        qDebug() << "bills file opened" << "\n";
+        for (int i = 0; i < dcount; i++) {
+            bills_ka_data_likhdo
+
+                << arrd[i]->getbid() << "|"
+                << arrd[i]->getpatid() << "|"
+                << arrd[i]->getbdate().toStdString()<< "|"
+                 << arrd[i]->getdocfee()<< "|"
+                 << arrd[i]->getmedicinefee()<< "|"
+                 << arrd[i]->gettrtcost()<< "|"
+                << arrd[i]->calculatebill() << "|"
+                << arrd[i]->getbstat().toStdString() << "|"                 // 10. Availability (Schedule info)
+                << "\n";
+
+
+        }
+        qDebug()<<"file mn data chla gya"<<"\n";
+        bills_ka_data_likhdo.close();
+    }
+    else {
+        qDebug() << "doctor file not opened" << "\n";
+    }
+}
+bills** fetchdata_bills()
+{
+
+    ifstream bills_ka_data_daalowapis("billrecord.txt");
+    qDebug()<<"bills file is opened"<<"\n";
+
+    if (bills_ka_data_daalowapis.is_open()) {
+        qDebug()  << "bills data fectched" << "\n";
+
+        string line;
+        QStringList list;
+        while(getline(bills_ka_data_daalowapis,line)){
+            QString tline=s_to_q(line);
+            list.append(tline);
+        }
+
+        bills_ka_data_daalowapis.clear();
+        bills_ka_data_daalowapis.seekg(0);
+
+        bills** arrp = new bills * [list.size()];
+
+        billcount = 0;
+
+        string ttline;
+
+        for (const QString& fline : list) {
+            QStringList field = fline.split("|", Qt::SkipEmptyParts); // Split line by | delimiter
+
+
+            // Extract all fields including the new ones
+            int bill_id = field[0].trimmed().toInt();         // Department ID (1001)
+            int patid = field[1].trimmed().toInt();            // Name (John Doe)
+            QString bill_date = field[2].trimmed();
+            float doc_fe = field[3].trimmed().toFloat();
+float med_fee
+                = field[4].trimmed().toFloat();
+float lab_fee = field[5].trimmed().toFloat();                // Date of Birth (1985-03-15)
+            float total_bill = field[6].trimmed().toFloat();          // Gender (Male)
+            QString bill_stat = field[7].trimmed();          // Status (Stable)
+
+
+            arrp[billcount] = new bills( patid, bill_id, total_bill,doc_fe, med_fee, lab_fee,  bill_stat,bill_date);
+
+            qDebug() << "Data of Department" << billcount << "fetched successfully";
+            billcount++;
+        }
+
+        qDebug()<<"now returning control  back with total Departments: "<<billcount<<"\n";
+        return arrp;
+    }
+
+    if (!bills_ka_data_daalowapis.is_open()) {
+        qDebug() << "Could not open file.";
+        return nullptr;
+    }
+
+}
+void takeInputbills(int patid, int billid,float totalfee, float doctorfee, float medicinefee, float trtcost, QString bstat, QString bdate)
+{
+
+    billcount=1;
+    bills** arrd = new bills*[billcount];
+    arrd[0] = new bills(
+        patid, billid, totalfee,doctorfee, medicinefee, trtcost,  bstat,bdate    // 7. depid
+        );
+    qDebug() << "bills added: " << billid;
+    objectToFilebills(arrd,billcount );
+    delete[] arrd;
+}

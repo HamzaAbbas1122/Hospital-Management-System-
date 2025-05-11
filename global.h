@@ -13,4 +13,5 @@ extern int bedscount;
 extern int roomcount;
  extern int Departmentcount;
 extern int nurseCount;
+ extern int billcount;
 #endif // GLOBAL_H

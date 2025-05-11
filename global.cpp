@@ -12,4 +12,5 @@ int bedscount=1;
 int roomcount=1;
 int Departmentcount=1;
 int nurseCount = 0;
+int billcount=1;
 

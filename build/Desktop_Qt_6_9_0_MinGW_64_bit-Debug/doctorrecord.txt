@@ -1,19 +1,19 @@
-Dr. Michael Chen | 1975-11-22 | Male | 456 Oak Ave, Chicago | 555-0102 | 1002 | 1 | Cardiologist | 12 | Tue-AM,Thu-AM,Fri-PM
-Dr. Emily Wilson | 1985-03-08 | Female | 789 Pine Rd, New York | 555-0103 | 1003 | 2 | Cardiologist | 8 | Mon-PM,Wed-AM,Thu-PM
-Dr. Abdullah | 1978-07-19 | Male | 321 Elm St, Houston | 0987654321 | 1004 | 4 | Orthopedics | 14 | mon-AM,Wed-PM,Fri-AM
-Dr. Jennifer Lee | 1982-09-30 | Female | 654 Maple Dr, Phoenix | 555-0105 | 1005 | 3 | hfdsjhfgd | 9 | Mon-AM,Thu-AM,Fri-PM
-Dr. David Kim | 1973-12-05 | Male | 987 Cedar Ln, Philadelphia | 555-0106 | 1006 | 3 | Ophthalmology | 18 | Tue-PM,Wed-AM,Thu-AM
-Dr. Amanda Brown | 1988-04-25 | Female | 159 Birch Blvd, San Antonio | 555-0107 | 1007 | 4 | Endocrinology | 7 | Mon-PM,Tue-AM,Fri-AM
-Dr. James Miller | 1970-08-12 | Male | 753 Spruce Way, San Diego | 555-0108 | 1008 | 4 | Gastroenterology | 22 | Wed-AM,Thu-PM,Fri-AM
-Dr. Olivia Davis | 1983-01-18 | Female | 426 Willow Ct, Dallas | 555-0109 | 1009 | 5 | Psychiatry | 10 | Mon-AM,Tue-PM,Thu-AM
-Dr. William Martinez | 1976-06-07 | Male | 842 Redwood Dr, San Jose | 555-0110 | 1010 | 5 | Urology | 16 | Tue-AM,Wed-PM,Fri-AM
-Dr. Sophia Rodriguez | 1987-02-14 | Female | 369 Sequoia Ln, Austin | 555-0111 | 1011 | 6 | Oncology | 6 | Mon-PM,Wed-AM,Thu-PM
-Dr. Benjamin Taylor | 1979-10-31 | Male | 951 Magnolia Ave, Jacksonville | 555-0112 | 1012 | 6 | Pulmonology | 13 | Tue-AM,Thu-AM,Fri-PM
-Dr. Ava Anderson | 1984-07-22 | Female | 258 Sycamore St, Fort Worth | 555-0113 | 1013 | 7 | Rheumatology | 11 | Mon-AM,Wed-PM,Fri-AM
-Dr. Daniel Thomas | 1972-04-03 | Male | 147 Aspen Way, Columbus | 555-0114 | 1014 | 7 | Nephrology | 19 | Tue-PM,Wed-AM,Thu-AM
-Dr. Mia Hernandez | 1986-11-11 | Female | 630 Palm Blvd, Charlotte | 555-0115 | 1015 | 8 | Hematology | 8 | Mon-PM,Tue-AM,Fri-AM
-Dr. Alexander Moore | 1974-09-09 | Male | 321 Juniper Rd, San Francisco | 555-0116 | 1016 | 8 | Infectious Disease | 17 | Wed-AM,Thu-PM,Fri-AM
-Dr. Charlotte White | 1981-12-25 | Female | 852 Acacia Dr, Indianapolis | 555-0117 | 1017 | 9 | Allergy | 14 | Mon-AM,Tue-PM,Thu-AM
-Dr. Ethan Martin | 1977-05-17 | Male | 963 Olive St, Seattle | 555-0118 | 1018 | 9 | Physical Medicine | 12 | Tue-AM,Wed-PM,Fri-AM
-Dr. Isabella Jackson | 1989-08-08 | Female | 741 Cypress Ln, Denver | 555-0119 | 1019 | 10 | Geriatrics | 5 | Mon-PM,Wed-AM,Thu-PM
-Dr. Matthew Thompson | 1971-03-28 | Male | 159 Spruce Ave, Washington | 555-0120 | 1020 | 10 | Sports Medicine | 20 | Tue-AM,Thu-AM,Fri-PM
+Dr. Michael Chen | 1975-11-22 | Male | 456 Oak Ave, Chicago | 555-0102 | 1002 | 1 | Cardiologist | 12 | Tue-AM,Thu-AM,Fri-PM| 3000 |
+Dr. Emily Wilson | 1985-03-08 | Female | 789 Pine Rd, New York | 555-0103 | 1003 | 2 | Cardiologist | 8 | Mon-PM,Wed-AM,Thu-PM| 3000 |
+Dr. Abdullah | 1978-07-19 | Male | 321 Elm St, Houston | 0987654321 | 1004 | 4 | Orthopedics | 14 | mon-AM,Wed-PM,Fri-AM| 3000 |
+Dr. Jennifer Lee | 1982-09-30 | Female | 654 Maple Dr, Phoenix | 555-0105 | 1005 | 3 | hfdsjhfgd | 9 | Mon-AM,Thu-AM,Fri-PM| 3000 |
+Dr. David Kim | 1973-12-05 | Male | 987 Cedar Ln, Philadelphia | 555-0106 | 1006 | 3 | Ophthalmology | 18 | Tue-PM,Wed-AM,Thu-AM| 3000 |
+Dr. Amanda Brown | 1988-04-25 | Female | 159 Birch Blvd, San Antonio | 555-0107 | 1007 | 4 | Endocrinology | 7 | Mon-PM,Tue-AM,Fri-AM| 3000 |
+Dr. James Miller | 1970-08-12 | Male | 753 Spruce Way, San Diego | 555-0108 | 1008 | 4 | Gastroenterology | 22 | Wed-AM,Thu-PM,Fri-AM| 3000 |
+Dr. Olivia Davis | 1983-01-18 | Female | 426 Willow Ct, Dallas | 555-0109 | 1009 | 5 | Psychiatry | 10 | Mon-AM,Tue-PM,Thu-AM| 3000 |
+Dr. William Martinez | 1976-06-07 | Male | 842 Redwood Dr, San Jose | 555-0110 | 1010 | 5 | Urology | 16 | Tue-AM,Wed-PM,Fri-AM| 3000 |
+Dr. Sophia Rodriguez | 1987-02-14 | Female | 369 Sequoia Ln, Austin | 555-0111 | 1011 | 6 | Oncology | 6 | Mon-PM,Wed-AM,Thu-PM| 3000 |
+Dr. Benjamin Taylor | 1979-10-31 | Male | 951 Magnolia Ave, Jacksonville | 555-0112 | 1012 | 6 | Pulmonology | 13 | Tue-AM,Thu-AM,Fri-PM| 3000 |
+Dr. Ava Anderson | 1984-07-22 | Female | 258 Sycamore St, Fort Worth | 555-0113 | 1013 | 7 | Rheumatology | 11 | Mon-AM,Wed-PM,Fri-AM| 3000 |
+Dr. Daniel Thomas | 1972-04-03 | Male | 147 Aspen Way, Columbus | 555-0114 | 1014 | 7 | Nephrology | 19 | Tue-PM,Wed-AM,Thu-AM| 3000 |
+Dr. Mia Hernandez | 1986-11-11 | Female | 630 Palm Blvd, Charlotte | 555-0115 | 1015 | 8 | Hematology | 8 | Mon-PM,Tue-AM,Fri-AM| 3000 |
+Dr. Alexander Moore | 1974-09-09 | Male | 321 Juniper Rd, San Francisco | 555-0116 | 1016 | 8 | Infectious Disease | 17 | Wed-AM,Thu-PM,Fri-AM| 3000 |
+Dr. Charlotte White | 1981-12-25 | Female | 852 Acacia Dr, Indianapolis | 555-0117 | 1017 | 9 | Allergy | 14 | Mon-AM,Tue-PM,Thu-AM| 3000 |
+Dr. Ethan Martin | 1977-05-17 | Male | 963 Olive St, Seattle | 555-0118 | 1018 | 9 | Physical Medicine | 12 | Tue-AM,Wed-PM,Fri-AM| 3000 |
+Dr. Isabella Jackson | 1989-08-08 | Female | 741 Cypress Ln, Denver | 555-0119 | 1019 | 10 | Geriatrics | 5 | Mon-PM,Wed-AM,Thu-PM| 3000 |
+Dr. Matthew Thompson | 1971-03-28 | Male | 159 Spruce Ave, Washington | 555-0120 | 1020 | 10 | Sports Medicine | 20 | Tue-AM,Thu-AM,Fri-PM| 3000 |

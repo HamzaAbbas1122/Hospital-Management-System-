@@ -81,6 +81,7 @@ DISTFILES += \
     build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/adminrecord.txt \
     build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/appointmentrecord.txt \
     build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/bedrecord.txt \
+    build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/billrecord.txt \
     build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/departmentrecord.txt \
     build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/doctorrecord.txt \
     build/Desktop_Qt_6_9_0_MinGW_64_bit-Debug/nursesrecord.txt \

@@ -10,13 +10,14 @@ private:
     int depid;          // Department ID
     QString specialization;
     int experience;     // Years of experience
-    QStringList availabilty;  // Availability schedule
+    QStringList availabilty;
+int fee;    // Availability schedule
 
 public:
     // Constructor with logical parameter grouping
     Doctor(QString name, QString dob, QString gender, QString address, QString phone,
            int docid, int departmentId, QString specialization, int experienceYears,
-           QStringList availability);
+           QStringList availability,int fee);
 
     // Getters
     int getDoctorId() const;
@@ -24,7 +25,7 @@ public:
     QString getSpecialization() const;
     int getExperience() const;
     QStringList getAvailability() const;
-
+    int getfee() const;
     // Setters
     void setDepartmentId(int departmentId);
     void setSpecialization(const QString &specialization);

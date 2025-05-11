@@ -2,6 +2,7 @@
 #define FUNCTIONS_H
 
 #include "beds.h"
+#include "bills.h"
 #include "depatment.h"
 #include "patient.h"
 #include "doctor.h"
@@ -136,3 +137,13 @@ void takeInputNurses(QString name, QString dob, QString gender, QString address,
 Nurses** fetchDataNurses(int* nurseCount);
 void objectToFileNurses(Nurses** arr, int count);
 void objectToFileNursesForEdit(Nurses** arr, int count);
+
+
+
+
+void takeInputbills(int patid, int billid,float totalfee, float doctorfee, float medicinefee, float trtcost, QString bstat, QString bdate);
+
+bills** fetchdata_bills();
+void objectToFilebills(bills** arr, int count);
+void objectToFilebillsForEdit(bills** arr, int count);
+

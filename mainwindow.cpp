@@ -109,7 +109,7 @@ void MainWindow::datafetchfordoctors(){
     }
 
 
-    ui->doctorsTable->setColumnCount(10);
+    ui->doctorsTable->setColumnCount(11);
 
     ui->doctorsTable->setColumnWidth(9, 300);
     ui->doctorsTable->setRowCount(doctorcount);
@@ -125,13 +125,15 @@ void MainWindow::datafetchfordoctors(){
         int docid = arr[i]->getDoctorId();                    // 6. docid (using getDoctorId())
         int depid = arr[i]->getDepartmentId();                // 7. depid (using getDepartmentId())
         QString specialization = arr[i]->getSpecialization(); // 8. specialization
-        int experience = arr[i]->getExperience();             // 9. experience
+        int experience = arr[i]->getExperience();
+int fees=arr[i]->getfee();            // 9. experience
         QString availability = arr[i]->getAvailability().join(","); // 10. availability
 
         // Convert numeric values to strings
         QString strDocId = QString::number(docid);
         QString strDepId = QString::number(depid);
         QString strExperience = QString::number(experience);
+        QString fee=QString::number(fees);
 
         // Set items in table with correct column order
         ui->doctorsTable->setItem(i, 0, new QTableWidgetItem(name));               // 1. name
@@ -144,7 +146,7 @@ void MainWindow::datafetchfordoctors(){
         ui->doctorsTable->setItem(i, 7, new QTableWidgetItem(specialization));     // 8. specialization
         ui->doctorsTable->setItem(i, 8, new QTableWidgetItem(strExperience));      // 9. experience
         ui->doctorsTable->setItem(i, 9, new QTableWidgetItem(availability));       // 10. availability
-
+ ui->doctorsTable->setItem(i, 10, new QTableWidgetItem(fee));
         qDebug() << "Doctor" << i << "data displayed";
     }
 
@@ -299,13 +301,78 @@ void MainWindow::on_mainTabWidget_tabBarClicked(int index)
         ui->pharmacytable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     }
 
-
+    if(index==8){
+        datafetchforbills();
+        ui->bill_widget->setCurrentIndex(0);
+        ui->billsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    }
     if(index==9){
         datafetchfortestsbooking();
         datafetchfortestsdata();
         ui->lab_widget->setCurrentIndex(0);
         ui->testsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     }
+}
+void MainWindow::datafetchforbills(){
+
+
+    ui->billsTable->setRowCount(0);
+
+
+    qDebug()<<"control returned" <<"\n";
+
+    bills **arr=fetchdata_bills();
+
+
+    if (!arr) {
+        qDebug() << "Error: Department array is null!";
+        return;
+    }
+
+
+    ui->billsTable->setColumnCount(8);
+
+    // for(int i=0;i<8;i++) ui->departmentsTable->setColumnWidth(i,150);
+    ui->billsTable->setColumnWidth(7,200);
+
+    ui->billsTable->setRowCount(billcount);
+
+    for(int i=0;i<billcount;i++){
+
+
+
+        // Extract all fields including the new ones
+        QString patid = QString::number(arr[i]->getpatid());         // Department ID (1001)
+        QString billid = QString::number(arr[i]->getbid());           // Name (John Doe)
+        QString totalfee = QString::number(arr[i]->getttotalfee());         // Date of Birth (1985-03-15)
+        QString doctorfee =  QString::number(arr[i]->getdocfee());          // Gender (Male)
+        QString medicinefee =  QString::number(arr[i]->getmedicinefee());         // Address (123 Main St, City)
+        QString trtcost =  QString::number(arr[i]->gettrtcost());         // Phone (555-0101)
+        QString bstat =  arr[i]->getbstat();      // Disease (Hypertension)
+        QString bdate = arr[i]->getbdate();
+
+
+
+        ui->billsTable->setItem(i, 0, new QTableWidgetItem(billid));        // Patient ID
+        ui->billsTable->setItem(i, 1, new QTableWidgetItem(patid));       // Name
+        ui->billsTable->setItem(i, 2, new QTableWidgetItem(bdate));        // Date of Birth
+        ui->billsTable->setItem(i, 3, new QTableWidgetItem(doctorfee));     // Gender
+        ui->billsTable->setItem(i, 4, new QTableWidgetItem(medicinefee));    // Address
+        ui->billsTable->setItem(i, 5, new QTableWidgetItem(trtcost));        // Phone Number
+        ui->billsTable->setItem(i, 6, new QTableWidgetItem(totalfee));    // Disease/Condition
+        ui->billsTable->setItem(i, 7, new QTableWidgetItem(bstat));     // Status
+
+
+        qDebug()<<"bills "<<i<<" data displayed"<<"\n " ;
+
+
+
+    }
+
+
+    delete[] arr;
+
+
 }
 
 void MainWindow::datafetchfordepartment(){
@@ -779,6 +846,7 @@ void MainWindow::on_doctor_editpushbutton_clicked()
         int experience = ui->doctorsTable->item(i,8) ? ui->doctorsTable->item(i,8)->text().toInt() : 0;
         QString availability = ui->doctorsTable->item(i,9) ? ui->doctorsTable->item(i,9)->text() : "";
         QStringList avail = availability.split(",");
+        int fee=ui->doctorsTable->item(i,10)?ui->doctorsTable->item(i,10)->text().toInt():0;
 
 
 
@@ -793,7 +861,8 @@ void MainWindow::on_doctor_editpushbutton_clicked()
             depid,          // 7. depid
             specialization, // 8. specialization
             experience,     // 9. experience
-            avail           // 10. availability
+            avail,
+fee            // 10. availability
             );
 
         qDebug() << "Successfully created Doctor object for:" << arrt[i]->getname();
@@ -833,7 +902,7 @@ void MainWindow::on_deletepush_clicked()
         int experience = ui->doctorsTable->item(i,8) ? ui->doctorsTable->item(i,8)->text().toInt() : 0;
         QString availability = ui->doctorsTable->item(i,9) ? ui->doctorsTable->item(i,9)->text() : "";
         QStringList avail = availability.split(",");
-
+  int fee=ui->doctorsTable->item(i,10)?ui->doctorsTable->item(i,10)->text().toInt():0;
 
 
         // Create Doctor object with parameters in correct sequence
@@ -847,7 +916,8 @@ void MainWindow::on_deletepush_clicked()
             depid,          // 7. depid
             specialization, // 8. specialization
             experience,     // 9. experience
-            avail           // 10. availability
+            avail,
+fee      // 10. availability
             );
 
         qDebug() << "Successfully created Doctor object for:" << arrt[i]->getname();

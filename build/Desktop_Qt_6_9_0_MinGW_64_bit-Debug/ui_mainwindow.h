@@ -17,7 +17,6 @@
 #include <QtWidgets/QDateTimeEdit>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -115,6 +114,12 @@ public:
     QPushButton *viewDoctorBtn;
     QSpacerItem *horizontalSpacer_2;
     QLineEdit *doctorSearchBox;
+    QStackedWidget *stackedWidget;
+    QWidget *table;
+    QTableWidget *doctorsTable;
+    QPushButton *doctor_editpushbutton;
+    QWidget *form;
+    QWidget *widget;
     QFormLayout *formLayout_3;
     QLabel *label;
     QLineEdit *pname;
@@ -134,15 +139,12 @@ public:
     QLabel *label_15;
     QLabel *label_17;
     QLineEdit *experience_lineedit;
-    QLabel *label_18;
-    QLineEdit *lineEdit_iddoc;
     QPushButton *pushButton;
     QLineEdit *experience_lineedit_3;
-    QStackedWidget *stackedWidget;
-    QWidget *table;
-    QTableWidget *doctorsTable;
-    QPushButton *doctor_editpushbutton;
-    QWidget *form;
+    QLineEdit *lineEdit_iddoc;
+    QLineEdit *doctorfeeLineEdit;
+    QLabel *label_18;
+    QLabel *doctorfee;
     QWidget *deleteui;
     QLabel *label_30;
     QLineEdit *docid_delete;
@@ -490,16 +492,19 @@ public:
     QPushButton *generateBillBtn;
     QPushButton *viewBillBtn;
     QPushButton *processPaymentBtn;
-    QPushButton *applyInsuranceBtn;
     QSpacerItem *horizontalSpacer_12;
     QLineEdit *billingSearchBox;
+    QStackedWidget *bill_widget;
+    QWidget *bill_table;
     QTableWidget *billsTable;
-    QGroupBox *paymentDetailsGroup;
-    QHBoxLayout *horizontalLayout_15;
-    QLabel *totalAmountLabel;
-    QLabel *paidAmountLabel;
-    QLabel *balanceLabel;
-    QLabel *insuranceLabel;
+    QWidget *bill_view_form;
+    QWidget *formLayoutWidget_17;
+    QFormLayout *formLayout_26;
+    QLabel *nurseIDLabel_7;
+    QLineEdit *patien_bill;
+    QVBoxLayout *verticalLayout_37;
+    QPushButton *bill_gen;
+    QWidget *page_3;
     QWidget *labsTab;
     QVBoxLayout *verticalLayout_20;
     QTabWidget *labTabs;
@@ -580,7 +585,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1294, 810);
+        MainWindow->resize(1294, 858);
         MainWindow->setStyleSheet(QString::fromUtf8("/* Modern, professional styling */\n"
 "QMainWindow {\n"
 "    background-color: #f5f7fa;\n"
@@ -986,7 +991,7 @@ public:
         page_2->setObjectName("page_2");
         layoutWidget_2 = new QWidget(page_2);
         layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(0, 0, 1232, 724));
+        layoutWidget_2->setGeometry(QRect(0, 0, 1232, 769));
         patient_form = new QFormLayout(layoutWidget_2);
         patient_form->setObjectName("patient_form");
         patient_form->setContentsMargins(0, 0, 0, 0);
@@ -1186,136 +1191,13 @@ public:
 
         verticalLayout_6->addWidget(doctorActionsFrame);
 
-        formLayout_3 = new QFormLayout();
-        formLayout_3->setObjectName("formLayout_3");
-        label = new QLabel(doctorsTab);
-        label->setObjectName("label");
-
-        formLayout_3->setWidget(0, QFormLayout::ItemRole::LabelRole, label);
-
-        pname = new QLineEdit(doctorsTab);
-        pname->setObjectName("pname");
-
-        formLayout_3->setWidget(0, QFormLayout::ItemRole::FieldRole, pname);
-
-        label_2 = new QLabel(doctorsTab);
-        label_2->setObjectName("label_2");
-
-        formLayout_3->setWidget(1, QFormLayout::ItemRole::LabelRole, label_2);
-
-        pdob = new QDateEdit(doctorsTab);
-        pdob->setObjectName("pdob");
-
-        formLayout_3->setWidget(1, QFormLayout::ItemRole::FieldRole, pdob);
-
-        label_11 = new QLabel(doctorsTab);
-        label_11->setObjectName("label_11");
-
-        formLayout_3->setWidget(2, QFormLayout::ItemRole::LabelRole, label_11);
-
-        comboBox_gender = new QComboBox(doctorsTab);
-        comboBox_gender->addItem(QString());
-        comboBox_gender->addItem(QString());
-        comboBox_gender->addItem(QString());
-        comboBox_gender->setObjectName("comboBox_gender");
-
-        formLayout_3->setWidget(2, QFormLayout::ItemRole::FieldRole, comboBox_gender);
-
-        label_12 = new QLabel(doctorsTab);
-        label_12->setObjectName("label_12");
-
-        formLayout_3->setWidget(3, QFormLayout::ItemRole::LabelRole, label_12);
-
-        lineedit_address = new QLineEdit(doctorsTab);
-        lineedit_address->setObjectName("lineedit_address");
-
-        formLayout_3->setWidget(3, QFormLayout::ItemRole::FieldRole, lineedit_address);
-
-        label_19 = new QLabel(doctorsTab);
-        label_19->setObjectName("label_19");
-
-        formLayout_3->setWidget(4, QFormLayout::ItemRole::LabelRole, label_19);
-
-        dateTimeEdit_doc = new QDateTimeEdit(doctorsTab);
-        dateTimeEdit_doc->setObjectName("dateTimeEdit_doc");
-
-        formLayout_3->setWidget(4, QFormLayout::ItemRole::FieldRole, dateTimeEdit_doc);
-
-        slot_button = new QPushButton(doctorsTab);
-        slot_button->setObjectName("slot_button");
-
-        formLayout_3->setWidget(5, QFormLayout::ItemRole::FieldRole, slot_button);
-
-        label_13 = new QLabel(doctorsTab);
-        label_13->setObjectName("label_13");
-
-        formLayout_3->setWidget(6, QFormLayout::ItemRole::LabelRole, label_13);
-
-        phone_lineedit = new QLineEdit(doctorsTab);
-        phone_lineedit->setObjectName("phone_lineedit");
-
-        formLayout_3->setWidget(6, QFormLayout::ItemRole::FieldRole, phone_lineedit);
-
-        label_14 = new QLabel(doctorsTab);
-        label_14->setObjectName("label_14");
-
-        formLayout_3->setWidget(7, QFormLayout::ItemRole::LabelRole, label_14);
-
-        comboBox_special = new QComboBox(doctorsTab);
-        comboBox_special->addItem(QString());
-        comboBox_special->addItem(QString());
-        comboBox_special->addItem(QString());
-        comboBox_special->setObjectName("comboBox_special");
-
-        formLayout_3->setWidget(7, QFormLayout::ItemRole::FieldRole, comboBox_special);
-
-        label_15 = new QLabel(doctorsTab);
-        label_15->setObjectName("label_15");
-
-        formLayout_3->setWidget(8, QFormLayout::ItemRole::LabelRole, label_15);
-
-        label_17 = new QLabel(doctorsTab);
-        label_17->setObjectName("label_17");
-
-        formLayout_3->setWidget(9, QFormLayout::ItemRole::LabelRole, label_17);
-
-        experience_lineedit = new QLineEdit(doctorsTab);
-        experience_lineedit->setObjectName("experience_lineedit");
-
-        formLayout_3->setWidget(9, QFormLayout::ItemRole::FieldRole, experience_lineedit);
-
-        label_18 = new QLabel(doctorsTab);
-        label_18->setObjectName("label_18");
-
-        formLayout_3->setWidget(10, QFormLayout::ItemRole::LabelRole, label_18);
-
-        lineEdit_iddoc = new QLineEdit(doctorsTab);
-        lineEdit_iddoc->setObjectName("lineEdit_iddoc");
-
-        formLayout_3->setWidget(10, QFormLayout::ItemRole::FieldRole, lineEdit_iddoc);
-
-        pushButton = new QPushButton(doctorsTab);
-        pushButton->setObjectName("pushButton");
-        pushButton->setMinimumSize(QSize(114, 38));
-        pushButton->setMaximumSize(QSize(1045, 16777215));
-
-        formLayout_3->setWidget(11, QFormLayout::ItemRole::FieldRole, pushButton);
-
-        experience_lineedit_3 = new QLineEdit(doctorsTab);
-        experience_lineedit_3->setObjectName("experience_lineedit_3");
-
-        formLayout_3->setWidget(8, QFormLayout::ItemRole::FieldRole, experience_lineedit_3);
-
-
-        verticalLayout_6->addLayout(formLayout_3);
-
         stackedWidget = new QStackedWidget(doctorsTab);
         stackedWidget->setObjectName("stackedWidget");
         table = new QWidget();
         table->setObjectName("table");
         doctorsTable = new QTableWidget(table);
-        if (doctorsTable->columnCount() < 10)
-            doctorsTable->setColumnCount(10);
+        if (doctorsTable->columnCount() < 11)
+            doctorsTable->setColumnCount(11);
         QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
         doctorsTable->setHorizontalHeaderItem(0, __qtablewidgetitem14);
         QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
@@ -1336,6 +1218,8 @@ public:
         doctorsTable->setHorizontalHeaderItem(8, __qtablewidgetitem22);
         QTableWidgetItem *__qtablewidgetitem23 = new QTableWidgetItem();
         doctorsTable->setHorizontalHeaderItem(9, __qtablewidgetitem23);
+        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
+        doctorsTable->setHorizontalHeaderItem(10, __qtablewidgetitem24);
         doctorsTable->setObjectName("doctorsTable");
         doctorsTable->setGeometry(QRect(0, 10, 1218, 571));
         doctor_editpushbutton = new QPushButton(table);
@@ -1344,6 +1228,140 @@ public:
         stackedWidget->addWidget(table);
         form = new QWidget();
         form->setObjectName("form");
+        widget = new QWidget(form);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(0, 0, 1232, 561));
+        formLayout_3 = new QFormLayout(widget);
+        formLayout_3->setObjectName("formLayout_3");
+        formLayout_3->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(widget);
+        label->setObjectName("label");
+
+        formLayout_3->setWidget(0, QFormLayout::ItemRole::LabelRole, label);
+
+        pname = new QLineEdit(widget);
+        pname->setObjectName("pname");
+
+        formLayout_3->setWidget(0, QFormLayout::ItemRole::FieldRole, pname);
+
+        label_2 = new QLabel(widget);
+        label_2->setObjectName("label_2");
+
+        formLayout_3->setWidget(1, QFormLayout::ItemRole::LabelRole, label_2);
+
+        pdob = new QDateEdit(widget);
+        pdob->setObjectName("pdob");
+
+        formLayout_3->setWidget(1, QFormLayout::ItemRole::FieldRole, pdob);
+
+        label_11 = new QLabel(widget);
+        label_11->setObjectName("label_11");
+
+        formLayout_3->setWidget(2, QFormLayout::ItemRole::LabelRole, label_11);
+
+        comboBox_gender = new QComboBox(widget);
+        comboBox_gender->addItem(QString());
+        comboBox_gender->addItem(QString());
+        comboBox_gender->addItem(QString());
+        comboBox_gender->setObjectName("comboBox_gender");
+
+        formLayout_3->setWidget(2, QFormLayout::ItemRole::FieldRole, comboBox_gender);
+
+        label_12 = new QLabel(widget);
+        label_12->setObjectName("label_12");
+
+        formLayout_3->setWidget(3, QFormLayout::ItemRole::LabelRole, label_12);
+
+        lineedit_address = new QLineEdit(widget);
+        lineedit_address->setObjectName("lineedit_address");
+
+        formLayout_3->setWidget(3, QFormLayout::ItemRole::FieldRole, lineedit_address);
+
+        label_19 = new QLabel(widget);
+        label_19->setObjectName("label_19");
+
+        formLayout_3->setWidget(4, QFormLayout::ItemRole::LabelRole, label_19);
+
+        dateTimeEdit_doc = new QDateTimeEdit(widget);
+        dateTimeEdit_doc->setObjectName("dateTimeEdit_doc");
+
+        formLayout_3->setWidget(4, QFormLayout::ItemRole::FieldRole, dateTimeEdit_doc);
+
+        slot_button = new QPushButton(widget);
+        slot_button->setObjectName("slot_button");
+
+        formLayout_3->setWidget(5, QFormLayout::ItemRole::FieldRole, slot_button);
+
+        label_13 = new QLabel(widget);
+        label_13->setObjectName("label_13");
+
+        formLayout_3->setWidget(6, QFormLayout::ItemRole::LabelRole, label_13);
+
+        phone_lineedit = new QLineEdit(widget);
+        phone_lineedit->setObjectName("phone_lineedit");
+
+        formLayout_3->setWidget(6, QFormLayout::ItemRole::FieldRole, phone_lineedit);
+
+        label_14 = new QLabel(widget);
+        label_14->setObjectName("label_14");
+
+        formLayout_3->setWidget(7, QFormLayout::ItemRole::LabelRole, label_14);
+
+        comboBox_special = new QComboBox(widget);
+        comboBox_special->addItem(QString());
+        comboBox_special->addItem(QString());
+        comboBox_special->addItem(QString());
+        comboBox_special->setObjectName("comboBox_special");
+
+        formLayout_3->setWidget(7, QFormLayout::ItemRole::FieldRole, comboBox_special);
+
+        label_15 = new QLabel(widget);
+        label_15->setObjectName("label_15");
+
+        formLayout_3->setWidget(8, QFormLayout::ItemRole::LabelRole, label_15);
+
+        label_17 = new QLabel(widget);
+        label_17->setObjectName("label_17");
+
+        formLayout_3->setWidget(9, QFormLayout::ItemRole::LabelRole, label_17);
+
+        experience_lineedit = new QLineEdit(widget);
+        experience_lineedit->setObjectName("experience_lineedit");
+
+        formLayout_3->setWidget(9, QFormLayout::ItemRole::FieldRole, experience_lineedit);
+
+        pushButton = new QPushButton(widget);
+        pushButton->setObjectName("pushButton");
+        pushButton->setMinimumSize(QSize(114, 38));
+        pushButton->setMaximumSize(QSize(1045, 16777215));
+
+        formLayout_3->setWidget(13, QFormLayout::ItemRole::FieldRole, pushButton);
+
+        experience_lineedit_3 = new QLineEdit(widget);
+        experience_lineedit_3->setObjectName("experience_lineedit_3");
+
+        formLayout_3->setWidget(8, QFormLayout::ItemRole::FieldRole, experience_lineedit_3);
+
+        lineEdit_iddoc = new QLineEdit(widget);
+        lineEdit_iddoc->setObjectName("lineEdit_iddoc");
+
+        formLayout_3->setWidget(10, QFormLayout::ItemRole::FieldRole, lineEdit_iddoc);
+
+        doctorfeeLineEdit = new QLineEdit(widget);
+        doctorfeeLineEdit->setObjectName("doctorfeeLineEdit");
+
+        formLayout_3->setWidget(11, QFormLayout::ItemRole::FieldRole, doctorfeeLineEdit);
+
+        label_18 = new QLabel(widget);
+        label_18->setObjectName("label_18");
+
+        formLayout_3->setWidget(10, QFormLayout::ItemRole::LabelRole, label_18);
+
+        doctorfee = new QLabel(widget);
+        doctorfee->setObjectName("doctorfee");
+
+        formLayout_3->setWidget(11, QFormLayout::ItemRole::LabelRole, doctorfee);
+
         stackedWidget->addWidget(form);
         deleteui = new QWidget();
         deleteui->setObjectName("deleteui");
@@ -1414,24 +1432,24 @@ public:
         appointtable = new QTableWidget(appointmentsTable_2);
         if (appointtable->columnCount() < 9)
             appointtable->setColumnCount(9);
-        QTableWidgetItem *__qtablewidgetitem24 = new QTableWidgetItem();
-        appointtable->setHorizontalHeaderItem(0, __qtablewidgetitem24);
         QTableWidgetItem *__qtablewidgetitem25 = new QTableWidgetItem();
-        appointtable->setHorizontalHeaderItem(1, __qtablewidgetitem25);
+        appointtable->setHorizontalHeaderItem(0, __qtablewidgetitem25);
         QTableWidgetItem *__qtablewidgetitem26 = new QTableWidgetItem();
-        appointtable->setHorizontalHeaderItem(2, __qtablewidgetitem26);
+        appointtable->setHorizontalHeaderItem(1, __qtablewidgetitem26);
         QTableWidgetItem *__qtablewidgetitem27 = new QTableWidgetItem();
-        appointtable->setHorizontalHeaderItem(3, __qtablewidgetitem27);
+        appointtable->setHorizontalHeaderItem(2, __qtablewidgetitem27);
         QTableWidgetItem *__qtablewidgetitem28 = new QTableWidgetItem();
-        appointtable->setHorizontalHeaderItem(4, __qtablewidgetitem28);
+        appointtable->setHorizontalHeaderItem(3, __qtablewidgetitem28);
         QTableWidgetItem *__qtablewidgetitem29 = new QTableWidgetItem();
-        appointtable->setHorizontalHeaderItem(5, __qtablewidgetitem29);
+        appointtable->setHorizontalHeaderItem(4, __qtablewidgetitem29);
         QTableWidgetItem *__qtablewidgetitem30 = new QTableWidgetItem();
-        appointtable->setHorizontalHeaderItem(6, __qtablewidgetitem30);
+        appointtable->setHorizontalHeaderItem(5, __qtablewidgetitem30);
         QTableWidgetItem *__qtablewidgetitem31 = new QTableWidgetItem();
-        appointtable->setHorizontalHeaderItem(7, __qtablewidgetitem31);
+        appointtable->setHorizontalHeaderItem(6, __qtablewidgetitem31);
         QTableWidgetItem *__qtablewidgetitem32 = new QTableWidgetItem();
-        appointtable->setHorizontalHeaderItem(8, __qtablewidgetitem32);
+        appointtable->setHorizontalHeaderItem(7, __qtablewidgetitem32);
+        QTableWidgetItem *__qtablewidgetitem33 = new QTableWidgetItem();
+        appointtable->setHorizontalHeaderItem(8, __qtablewidgetitem33);
         appointtable->setObjectName("appointtable");
         appointtable->setGeometry(QRect(10, 10, 1218, 576));
         appointtable->setMaximumSize(QSize(1218, 576));
@@ -1590,24 +1608,24 @@ public:
         nursesTable = new QTableWidget(nurse_table);
         if (nursesTable->columnCount() < 9)
             nursesTable->setColumnCount(9);
-        QTableWidgetItem *__qtablewidgetitem33 = new QTableWidgetItem();
-        nursesTable->setHorizontalHeaderItem(0, __qtablewidgetitem33);
         QTableWidgetItem *__qtablewidgetitem34 = new QTableWidgetItem();
-        nursesTable->setHorizontalHeaderItem(1, __qtablewidgetitem34);
+        nursesTable->setHorizontalHeaderItem(0, __qtablewidgetitem34);
         QTableWidgetItem *__qtablewidgetitem35 = new QTableWidgetItem();
-        nursesTable->setHorizontalHeaderItem(2, __qtablewidgetitem35);
+        nursesTable->setHorizontalHeaderItem(1, __qtablewidgetitem35);
         QTableWidgetItem *__qtablewidgetitem36 = new QTableWidgetItem();
-        nursesTable->setHorizontalHeaderItem(3, __qtablewidgetitem36);
+        nursesTable->setHorizontalHeaderItem(2, __qtablewidgetitem36);
         QTableWidgetItem *__qtablewidgetitem37 = new QTableWidgetItem();
-        nursesTable->setHorizontalHeaderItem(4, __qtablewidgetitem37);
+        nursesTable->setHorizontalHeaderItem(3, __qtablewidgetitem37);
         QTableWidgetItem *__qtablewidgetitem38 = new QTableWidgetItem();
-        nursesTable->setHorizontalHeaderItem(5, __qtablewidgetitem38);
+        nursesTable->setHorizontalHeaderItem(4, __qtablewidgetitem38);
         QTableWidgetItem *__qtablewidgetitem39 = new QTableWidgetItem();
-        nursesTable->setHorizontalHeaderItem(6, __qtablewidgetitem39);
+        nursesTable->setHorizontalHeaderItem(5, __qtablewidgetitem39);
         QTableWidgetItem *__qtablewidgetitem40 = new QTableWidgetItem();
-        nursesTable->setHorizontalHeaderItem(7, __qtablewidgetitem40);
+        nursesTable->setHorizontalHeaderItem(6, __qtablewidgetitem40);
         QTableWidgetItem *__qtablewidgetitem41 = new QTableWidgetItem();
-        nursesTable->setHorizontalHeaderItem(8, __qtablewidgetitem41);
+        nursesTable->setHorizontalHeaderItem(7, __qtablewidgetitem41);
+        QTableWidgetItem *__qtablewidgetitem42 = new QTableWidgetItem();
+        nursesTable->setHorizontalHeaderItem(8, __qtablewidgetitem42);
         nursesTable->setObjectName("nursesTable");
         nursesTable->setGeometry(QRect(0, 20, 1178, 481));
         nurse_widget->addWidget(nurse_table);
@@ -1807,22 +1825,22 @@ public:
         receptionistsTable = new QTableWidget(recep_table);
         if (receptionistsTable->columnCount() < 8)
             receptionistsTable->setColumnCount(8);
-        QTableWidgetItem *__qtablewidgetitem42 = new QTableWidgetItem();
-        receptionistsTable->setHorizontalHeaderItem(0, __qtablewidgetitem42);
         QTableWidgetItem *__qtablewidgetitem43 = new QTableWidgetItem();
-        receptionistsTable->setHorizontalHeaderItem(1, __qtablewidgetitem43);
+        receptionistsTable->setHorizontalHeaderItem(0, __qtablewidgetitem43);
         QTableWidgetItem *__qtablewidgetitem44 = new QTableWidgetItem();
-        receptionistsTable->setHorizontalHeaderItem(2, __qtablewidgetitem44);
+        receptionistsTable->setHorizontalHeaderItem(1, __qtablewidgetitem44);
         QTableWidgetItem *__qtablewidgetitem45 = new QTableWidgetItem();
-        receptionistsTable->setHorizontalHeaderItem(3, __qtablewidgetitem45);
+        receptionistsTable->setHorizontalHeaderItem(2, __qtablewidgetitem45);
         QTableWidgetItem *__qtablewidgetitem46 = new QTableWidgetItem();
-        receptionistsTable->setHorizontalHeaderItem(4, __qtablewidgetitem46);
+        receptionistsTable->setHorizontalHeaderItem(3, __qtablewidgetitem46);
         QTableWidgetItem *__qtablewidgetitem47 = new QTableWidgetItem();
-        receptionistsTable->setHorizontalHeaderItem(5, __qtablewidgetitem47);
+        receptionistsTable->setHorizontalHeaderItem(4, __qtablewidgetitem47);
         QTableWidgetItem *__qtablewidgetitem48 = new QTableWidgetItem();
-        receptionistsTable->setHorizontalHeaderItem(6, __qtablewidgetitem48);
+        receptionistsTable->setHorizontalHeaderItem(5, __qtablewidgetitem48);
         QTableWidgetItem *__qtablewidgetitem49 = new QTableWidgetItem();
-        receptionistsTable->setHorizontalHeaderItem(7, __qtablewidgetitem49);
+        receptionistsTable->setHorizontalHeaderItem(6, __qtablewidgetitem49);
+        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
+        receptionistsTable->setHorizontalHeaderItem(7, __qtablewidgetitem50);
         receptionistsTable->setObjectName("receptionistsTable");
         receptionistsTable->setGeometry(QRect(0, 20, 1178, 481));
         recep_widget->addWidget(recep_table);
@@ -1998,22 +2016,22 @@ public:
         adminsTable = new QTableWidget(admin_table);
         if (adminsTable->columnCount() < 8)
             adminsTable->setColumnCount(8);
-        QTableWidgetItem *__qtablewidgetitem50 = new QTableWidgetItem();
-        adminsTable->setHorizontalHeaderItem(0, __qtablewidgetitem50);
         QTableWidgetItem *__qtablewidgetitem51 = new QTableWidgetItem();
-        adminsTable->setHorizontalHeaderItem(1, __qtablewidgetitem51);
+        adminsTable->setHorizontalHeaderItem(0, __qtablewidgetitem51);
         QTableWidgetItem *__qtablewidgetitem52 = new QTableWidgetItem();
-        adminsTable->setHorizontalHeaderItem(2, __qtablewidgetitem52);
+        adminsTable->setHorizontalHeaderItem(1, __qtablewidgetitem52);
         QTableWidgetItem *__qtablewidgetitem53 = new QTableWidgetItem();
-        adminsTable->setHorizontalHeaderItem(3, __qtablewidgetitem53);
+        adminsTable->setHorizontalHeaderItem(2, __qtablewidgetitem53);
         QTableWidgetItem *__qtablewidgetitem54 = new QTableWidgetItem();
-        adminsTable->setHorizontalHeaderItem(4, __qtablewidgetitem54);
+        adminsTable->setHorizontalHeaderItem(3, __qtablewidgetitem54);
         QTableWidgetItem *__qtablewidgetitem55 = new QTableWidgetItem();
-        adminsTable->setHorizontalHeaderItem(5, __qtablewidgetitem55);
+        adminsTable->setHorizontalHeaderItem(4, __qtablewidgetitem55);
         QTableWidgetItem *__qtablewidgetitem56 = new QTableWidgetItem();
-        adminsTable->setHorizontalHeaderItem(6, __qtablewidgetitem56);
+        adminsTable->setHorizontalHeaderItem(5, __qtablewidgetitem56);
         QTableWidgetItem *__qtablewidgetitem57 = new QTableWidgetItem();
-        adminsTable->setHorizontalHeaderItem(7, __qtablewidgetitem57);
+        adminsTable->setHorizontalHeaderItem(6, __qtablewidgetitem57);
+        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
+        adminsTable->setHorizontalHeaderItem(7, __qtablewidgetitem58);
         adminsTable->setObjectName("adminsTable");
         adminsTable->setGeometry(QRect(0, 0, 1178, 491));
         admin_widget->addWidget(admin_table);
@@ -2226,20 +2244,20 @@ public:
         wardsTable = new QTableWidget(wards_table);
         if (wardsTable->columnCount() < 7)
             wardsTable->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem58 = new QTableWidgetItem();
-        wardsTable->setHorizontalHeaderItem(0, __qtablewidgetitem58);
         QTableWidgetItem *__qtablewidgetitem59 = new QTableWidgetItem();
-        wardsTable->setHorizontalHeaderItem(1, __qtablewidgetitem59);
+        wardsTable->setHorizontalHeaderItem(0, __qtablewidgetitem59);
         QTableWidgetItem *__qtablewidgetitem60 = new QTableWidgetItem();
-        wardsTable->setHorizontalHeaderItem(2, __qtablewidgetitem60);
+        wardsTable->setHorizontalHeaderItem(1, __qtablewidgetitem60);
         QTableWidgetItem *__qtablewidgetitem61 = new QTableWidgetItem();
-        wardsTable->setHorizontalHeaderItem(3, __qtablewidgetitem61);
+        wardsTable->setHorizontalHeaderItem(2, __qtablewidgetitem61);
         QTableWidgetItem *__qtablewidgetitem62 = new QTableWidgetItem();
-        wardsTable->setHorizontalHeaderItem(4, __qtablewidgetitem62);
+        wardsTable->setHorizontalHeaderItem(3, __qtablewidgetitem62);
         QTableWidgetItem *__qtablewidgetitem63 = new QTableWidgetItem();
-        wardsTable->setHorizontalHeaderItem(5, __qtablewidgetitem63);
+        wardsTable->setHorizontalHeaderItem(4, __qtablewidgetitem63);
         QTableWidgetItem *__qtablewidgetitem64 = new QTableWidgetItem();
-        wardsTable->setHorizontalHeaderItem(6, __qtablewidgetitem64);
+        wardsTable->setHorizontalHeaderItem(5, __qtablewidgetitem64);
+        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
+        wardsTable->setHorizontalHeaderItem(6, __qtablewidgetitem65);
         wardsTable->setObjectName("wardsTable");
         wardsTable->setGeometry(QRect(0, 0, 1178, 511));
         wards_widget->addWidget(wards_table);
@@ -2415,16 +2433,16 @@ public:
         roomsTable = new QTableWidget(room_table);
         if (roomsTable->columnCount() < 5)
             roomsTable->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem65 = new QTableWidgetItem();
-        roomsTable->setHorizontalHeaderItem(0, __qtablewidgetitem65);
         QTableWidgetItem *__qtablewidgetitem66 = new QTableWidgetItem();
-        roomsTable->setHorizontalHeaderItem(1, __qtablewidgetitem66);
+        roomsTable->setHorizontalHeaderItem(0, __qtablewidgetitem66);
         QTableWidgetItem *__qtablewidgetitem67 = new QTableWidgetItem();
-        roomsTable->setHorizontalHeaderItem(2, __qtablewidgetitem67);
+        roomsTable->setHorizontalHeaderItem(1, __qtablewidgetitem67);
         QTableWidgetItem *__qtablewidgetitem68 = new QTableWidgetItem();
-        roomsTable->setHorizontalHeaderItem(3, __qtablewidgetitem68);
+        roomsTable->setHorizontalHeaderItem(2, __qtablewidgetitem68);
         QTableWidgetItem *__qtablewidgetitem69 = new QTableWidgetItem();
-        roomsTable->setHorizontalHeaderItem(4, __qtablewidgetitem69);
+        roomsTable->setHorizontalHeaderItem(3, __qtablewidgetitem69);
+        QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
+        roomsTable->setHorizontalHeaderItem(4, __qtablewidgetitem70);
         roomsTable->setObjectName("roomsTable");
         roomsTable->setGeometry(QRect(0, 0, 1178, 491));
         room_widget->addWidget(room_table);
@@ -2575,14 +2593,14 @@ public:
         bedsTable = new QTableWidget(bed_table);
         if (bedsTable->columnCount() < 4)
             bedsTable->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem70 = new QTableWidgetItem();
-        bedsTable->setHorizontalHeaderItem(0, __qtablewidgetitem70);
         QTableWidgetItem *__qtablewidgetitem71 = new QTableWidgetItem();
-        bedsTable->setHorizontalHeaderItem(1, __qtablewidgetitem71);
+        bedsTable->setHorizontalHeaderItem(0, __qtablewidgetitem71);
         QTableWidgetItem *__qtablewidgetitem72 = new QTableWidgetItem();
-        bedsTable->setHorizontalHeaderItem(2, __qtablewidgetitem72);
+        bedsTable->setHorizontalHeaderItem(1, __qtablewidgetitem72);
         QTableWidgetItem *__qtablewidgetitem73 = new QTableWidgetItem();
-        bedsTable->setHorizontalHeaderItem(3, __qtablewidgetitem73);
+        bedsTable->setHorizontalHeaderItem(2, __qtablewidgetitem73);
+        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
+        bedsTable->setHorizontalHeaderItem(3, __qtablewidgetitem74);
         bedsTable->setObjectName("bedsTable");
         bedsTable->setGeometry(QRect(-10, 0, 1178, 501));
         bed_widget->addWidget(bed_table);
@@ -2726,22 +2744,22 @@ public:
         departmentsTable = new QTableWidget(dep_table);
         if (departmentsTable->columnCount() < 8)
             departmentsTable->setColumnCount(8);
-        QTableWidgetItem *__qtablewidgetitem74 = new QTableWidgetItem();
-        departmentsTable->setHorizontalHeaderItem(0, __qtablewidgetitem74);
         QTableWidgetItem *__qtablewidgetitem75 = new QTableWidgetItem();
-        departmentsTable->setHorizontalHeaderItem(1, __qtablewidgetitem75);
+        departmentsTable->setHorizontalHeaderItem(0, __qtablewidgetitem75);
         QTableWidgetItem *__qtablewidgetitem76 = new QTableWidgetItem();
-        departmentsTable->setHorizontalHeaderItem(2, __qtablewidgetitem76);
+        departmentsTable->setHorizontalHeaderItem(1, __qtablewidgetitem76);
         QTableWidgetItem *__qtablewidgetitem77 = new QTableWidgetItem();
-        departmentsTable->setHorizontalHeaderItem(3, __qtablewidgetitem77);
+        departmentsTable->setHorizontalHeaderItem(2, __qtablewidgetitem77);
         QTableWidgetItem *__qtablewidgetitem78 = new QTableWidgetItem();
-        departmentsTable->setHorizontalHeaderItem(4, __qtablewidgetitem78);
+        departmentsTable->setHorizontalHeaderItem(3, __qtablewidgetitem78);
         QTableWidgetItem *__qtablewidgetitem79 = new QTableWidgetItem();
-        departmentsTable->setHorizontalHeaderItem(5, __qtablewidgetitem79);
+        departmentsTable->setHorizontalHeaderItem(4, __qtablewidgetitem79);
         QTableWidgetItem *__qtablewidgetitem80 = new QTableWidgetItem();
-        departmentsTable->setHorizontalHeaderItem(6, __qtablewidgetitem80);
+        departmentsTable->setHorizontalHeaderItem(5, __qtablewidgetitem80);
         QTableWidgetItem *__qtablewidgetitem81 = new QTableWidgetItem();
-        departmentsTable->setHorizontalHeaderItem(7, __qtablewidgetitem81);
+        departmentsTable->setHorizontalHeaderItem(6, __qtablewidgetitem81);
+        QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
+        departmentsTable->setHorizontalHeaderItem(7, __qtablewidgetitem82);
         departmentsTable->setObjectName("departmentsTable");
         departmentsTable->setGeometry(QRect(0, -10, 1218, 581));
         department_widget->addWidget(dep_table);
@@ -2891,16 +2909,16 @@ public:
         pharmacytable = new QTableWidget(med_table);
         if (pharmacytable->columnCount() < 5)
             pharmacytable->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem82 = new QTableWidgetItem();
-        pharmacytable->setHorizontalHeaderItem(0, __qtablewidgetitem82);
         QTableWidgetItem *__qtablewidgetitem83 = new QTableWidgetItem();
-        pharmacytable->setHorizontalHeaderItem(1, __qtablewidgetitem83);
+        pharmacytable->setHorizontalHeaderItem(0, __qtablewidgetitem83);
         QTableWidgetItem *__qtablewidgetitem84 = new QTableWidgetItem();
-        pharmacytable->setHorizontalHeaderItem(2, __qtablewidgetitem84);
+        pharmacytable->setHorizontalHeaderItem(1, __qtablewidgetitem84);
         QTableWidgetItem *__qtablewidgetitem85 = new QTableWidgetItem();
-        pharmacytable->setHorizontalHeaderItem(3, __qtablewidgetitem85);
+        pharmacytable->setHorizontalHeaderItem(2, __qtablewidgetitem85);
         QTableWidgetItem *__qtablewidgetitem86 = new QTableWidgetItem();
-        pharmacytable->setHorizontalHeaderItem(4, __qtablewidgetitem86);
+        pharmacytable->setHorizontalHeaderItem(3, __qtablewidgetitem86);
+        QTableWidgetItem *__qtablewidgetitem87 = new QTableWidgetItem();
+        pharmacytable->setHorizontalHeaderItem(4, __qtablewidgetitem87);
         pharmacytable->setObjectName("pharmacytable");
         pharmacytable->setGeometry(QRect(0, 6, 1192, 491));
         edit_med_push = new QPushButton(med_table);
@@ -3075,12 +3093,6 @@ public:
 
         horizontalLayout_14->addWidget(processPaymentBtn);
 
-        applyInsuranceBtn = new QPushButton(billingActionsFrame);
-        applyInsuranceBtn->setObjectName("applyInsuranceBtn");
-        applyInsuranceBtn->setStyleSheet(QString::fromUtf8("padding: 8px 16px;"));
-
-        horizontalLayout_14->addWidget(applyInsuranceBtn);
-
         horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         horizontalLayout_14->addItem(horizontalSpacer_12);
@@ -3093,53 +3105,66 @@ public:
 
         verticalLayout_19->addWidget(billingActionsFrame);
 
-        billsTable = new QTableWidget(billingTab);
-        if (billsTable->columnCount() < 7)
-            billsTable->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem87 = new QTableWidgetItem();
-        billsTable->setHorizontalHeaderItem(0, __qtablewidgetitem87);
+        bill_widget = new QStackedWidget(billingTab);
+        bill_widget->setObjectName("bill_widget");
+        bill_table = new QWidget();
+        bill_table->setObjectName("bill_table");
+        billsTable = new QTableWidget(bill_table);
+        if (billsTable->columnCount() < 8)
+            billsTable->setColumnCount(8);
         QTableWidgetItem *__qtablewidgetitem88 = new QTableWidgetItem();
-        billsTable->setHorizontalHeaderItem(1, __qtablewidgetitem88);
+        billsTable->setHorizontalHeaderItem(0, __qtablewidgetitem88);
         QTableWidgetItem *__qtablewidgetitem89 = new QTableWidgetItem();
-        billsTable->setHorizontalHeaderItem(2, __qtablewidgetitem89);
+        billsTable->setHorizontalHeaderItem(1, __qtablewidgetitem89);
         QTableWidgetItem *__qtablewidgetitem90 = new QTableWidgetItem();
-        billsTable->setHorizontalHeaderItem(3, __qtablewidgetitem90);
+        billsTable->setHorizontalHeaderItem(2, __qtablewidgetitem90);
         QTableWidgetItem *__qtablewidgetitem91 = new QTableWidgetItem();
-        billsTable->setHorizontalHeaderItem(4, __qtablewidgetitem91);
+        billsTable->setHorizontalHeaderItem(3, __qtablewidgetitem91);
         QTableWidgetItem *__qtablewidgetitem92 = new QTableWidgetItem();
-        billsTable->setHorizontalHeaderItem(5, __qtablewidgetitem92);
+        billsTable->setHorizontalHeaderItem(4, __qtablewidgetitem92);
         QTableWidgetItem *__qtablewidgetitem93 = new QTableWidgetItem();
-        billsTable->setHorizontalHeaderItem(6, __qtablewidgetitem93);
+        billsTable->setHorizontalHeaderItem(5, __qtablewidgetitem93);
+        QTableWidgetItem *__qtablewidgetitem94 = new QTableWidgetItem();
+        billsTable->setHorizontalHeaderItem(6, __qtablewidgetitem94);
+        QTableWidgetItem *__qtablewidgetitem95 = new QTableWidgetItem();
+        billsTable->setHorizontalHeaderItem(7, __qtablewidgetitem95);
         billsTable->setObjectName("billsTable");
+        billsTable->setGeometry(QRect(0, 0, 1232, 551));
+        bill_widget->addWidget(bill_table);
+        bill_view_form = new QWidget();
+        bill_view_form->setObjectName("bill_view_form");
+        formLayoutWidget_17 = new QWidget(bill_view_form);
+        formLayoutWidget_17->setObjectName("formLayoutWidget_17");
+        formLayoutWidget_17->setGeometry(QRect(300, 190, 571, 151));
+        formLayout_26 = new QFormLayout(formLayoutWidget_17);
+        formLayout_26->setObjectName("formLayout_26");
+        formLayout_26->setContentsMargins(0, 0, 0, 0);
+        nurseIDLabel_7 = new QLabel(formLayoutWidget_17);
+        nurseIDLabel_7->setObjectName("nurseIDLabel_7");
 
-        verticalLayout_19->addWidget(billsTable);
+        formLayout_26->setWidget(0, QFormLayout::ItemRole::LabelRole, nurseIDLabel_7);
 
-        paymentDetailsGroup = new QGroupBox(billingTab);
-        paymentDetailsGroup->setObjectName("paymentDetailsGroup");
-        horizontalLayout_15 = new QHBoxLayout(paymentDetailsGroup);
-        horizontalLayout_15->setObjectName("horizontalLayout_15");
-        totalAmountLabel = new QLabel(paymentDetailsGroup);
-        totalAmountLabel->setObjectName("totalAmountLabel");
+        patien_bill = new QLineEdit(formLayoutWidget_17);
+        patien_bill->setObjectName("patien_bill");
 
-        horizontalLayout_15->addWidget(totalAmountLabel);
+        formLayout_26->setWidget(0, QFormLayout::ItemRole::FieldRole, patien_bill);
 
-        paidAmountLabel = new QLabel(paymentDetailsGroup);
-        paidAmountLabel->setObjectName("paidAmountLabel");
+        verticalLayout_37 = new QVBoxLayout();
+        verticalLayout_37->setObjectName("verticalLayout_37");
+        bill_gen = new QPushButton(formLayoutWidget_17);
+        bill_gen->setObjectName("bill_gen");
 
-        horizontalLayout_15->addWidget(paidAmountLabel);
-
-        balanceLabel = new QLabel(paymentDetailsGroup);
-        balanceLabel->setObjectName("balanceLabel");
-
-        horizontalLayout_15->addWidget(balanceLabel);
-
-        insuranceLabel = new QLabel(paymentDetailsGroup);
-        insuranceLabel->setObjectName("insuranceLabel");
-
-        horizontalLayout_15->addWidget(insuranceLabel);
+        verticalLayout_37->addWidget(bill_gen);
 
 
-        verticalLayout_19->addWidget(paymentDetailsGroup);
+        formLayout_26->setLayout(1, QFormLayout::ItemRole::FieldRole, verticalLayout_37);
+
+        bill_widget->addWidget(bill_view_form);
+        page_3 = new QWidget();
+        page_3->setObjectName("page_3");
+        bill_widget->addWidget(page_3);
+
+        verticalLayout_19->addWidget(bill_widget);
 
         mainTabWidget->addTab(billingTab, QString());
         labsTab = new QWidget();
@@ -3201,20 +3226,20 @@ public:
         testsTable = new QTableWidget(table_lab);
         if (testsTable->columnCount() < 7)
             testsTable->setColumnCount(7);
-        QTableWidgetItem *__qtablewidgetitem94 = new QTableWidgetItem();
-        testsTable->setHorizontalHeaderItem(0, __qtablewidgetitem94);
-        QTableWidgetItem *__qtablewidgetitem95 = new QTableWidgetItem();
-        testsTable->setHorizontalHeaderItem(1, __qtablewidgetitem95);
         QTableWidgetItem *__qtablewidgetitem96 = new QTableWidgetItem();
-        testsTable->setHorizontalHeaderItem(2, __qtablewidgetitem96);
+        testsTable->setHorizontalHeaderItem(0, __qtablewidgetitem96);
         QTableWidgetItem *__qtablewidgetitem97 = new QTableWidgetItem();
-        testsTable->setHorizontalHeaderItem(3, __qtablewidgetitem97);
+        testsTable->setHorizontalHeaderItem(1, __qtablewidgetitem97);
         QTableWidgetItem *__qtablewidgetitem98 = new QTableWidgetItem();
-        testsTable->setHorizontalHeaderItem(4, __qtablewidgetitem98);
+        testsTable->setHorizontalHeaderItem(2, __qtablewidgetitem98);
         QTableWidgetItem *__qtablewidgetitem99 = new QTableWidgetItem();
-        testsTable->setHorizontalHeaderItem(5, __qtablewidgetitem99);
+        testsTable->setHorizontalHeaderItem(3, __qtablewidgetitem99);
         QTableWidgetItem *__qtablewidgetitem100 = new QTableWidgetItem();
-        testsTable->setHorizontalHeaderItem(6, __qtablewidgetitem100);
+        testsTable->setHorizontalHeaderItem(4, __qtablewidgetitem100);
+        QTableWidgetItem *__qtablewidgetitem101 = new QTableWidgetItem();
+        testsTable->setHorizontalHeaderItem(5, __qtablewidgetitem101);
+        QTableWidgetItem *__qtablewidgetitem102 = new QTableWidgetItem();
+        testsTable->setHorizontalHeaderItem(6, __qtablewidgetitem102);
         testsTable->setObjectName("testsTable");
         testsTable->setGeometry(QRect(0, 0, 1192, 751));
         laboraty_push_button = new QPushButton(table_lab);
@@ -3371,14 +3396,14 @@ public:
         testsdataTable = new QTableWidget(tt);
         if (testsdataTable->columnCount() < 4)
             testsdataTable->setColumnCount(4);
-        QTableWidgetItem *__qtablewidgetitem101 = new QTableWidgetItem();
-        testsdataTable->setHorizontalHeaderItem(0, __qtablewidgetitem101);
-        QTableWidgetItem *__qtablewidgetitem102 = new QTableWidgetItem();
-        testsdataTable->setHorizontalHeaderItem(1, __qtablewidgetitem102);
         QTableWidgetItem *__qtablewidgetitem103 = new QTableWidgetItem();
-        testsdataTable->setHorizontalHeaderItem(2, __qtablewidgetitem103);
+        testsdataTable->setHorizontalHeaderItem(0, __qtablewidgetitem103);
         QTableWidgetItem *__qtablewidgetitem104 = new QTableWidgetItem();
-        testsdataTable->setHorizontalHeaderItem(3, __qtablewidgetitem104);
+        testsdataTable->setHorizontalHeaderItem(1, __qtablewidgetitem104);
+        QTableWidgetItem *__qtablewidgetitem105 = new QTableWidgetItem();
+        testsdataTable->setHorizontalHeaderItem(2, __qtablewidgetitem105);
+        QTableWidgetItem *__qtablewidgetitem106 = new QTableWidgetItem();
+        testsdataTable->setHorizontalHeaderItem(3, __qtablewidgetitem106);
         testsdataTable->setObjectName("testsdataTable");
         testsdataTable->setGeometry(QRect(0, 10, 1192, 751));
         testdata_pushbutton = new QPushButton(tt);
@@ -3464,7 +3489,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1294, 21));
+        menubar->setGeometry(QRect(0, 0, 1294, 28));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName("menuFile");
         menuEdit = new QMenu(menubar);
@@ -3492,11 +3517,11 @@ public:
 
         retranslateUi(MainWindow);
 
-        mainTabWidget->setCurrentIndex(5);
-        patient_stack->setCurrentIndex(2);
-        stackedWidget->setCurrentIndex(1);
-        appointstack->setCurrentIndex(2);
-        staffTypeTabs->setCurrentIndex(1);
+        mainTabWidget->setCurrentIndex(8);
+        patient_stack->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(2);
+        appointstack->setCurrentIndex(1);
+        staffTypeTabs->setCurrentIndex(0);
         wardRoomTabs->setCurrentIndex(2);
         room_widget->setCurrentIndex(1);
         pharmacyTabs->setCurrentIndex(0);
@@ -3588,26 +3613,6 @@ public:
         deleteDoctorBtn->setText(QCoreApplication::translate("MainWindow", "Delete Doctor", nullptr));
         viewDoctorBtn->setText(QCoreApplication::translate("MainWindow", "View Details", nullptr));
         doctorSearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search doctors...", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Date of Birth", nullptr));
-        label_11->setText(QCoreApplication::translate("MainWindow", "Gender", nullptr));
-        comboBox_gender->setItemText(0, QCoreApplication::translate("MainWindow", "Male", nullptr));
-        comboBox_gender->setItemText(1, QCoreApplication::translate("MainWindow", "Female", nullptr));
-        comboBox_gender->setItemText(2, QCoreApplication::translate("MainWindow", "Transgender", nullptr));
-
-        label_12->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
-        label_19->setText(QCoreApplication::translate("MainWindow", "Availabilty", nullptr));
-        slot_button->setText(QCoreApplication::translate("MainWindow", "Add Slot", nullptr));
-        label_13->setText(QCoreApplication::translate("MainWindow", "Phone Number", nullptr));
-        label_14->setText(QCoreApplication::translate("MainWindow", "Specialization", nullptr));
-        comboBox_special->setItemText(0, QCoreApplication::translate("MainWindow", "Heart Attack", nullptr));
-        comboBox_special->setItemText(1, QCoreApplication::translate("MainWindow", "Brain Tumour", nullptr));
-        comboBox_special->setItemText(2, QCoreApplication::translate("MainWindow", "Keera", nullptr));
-
-        label_15->setText(QCoreApplication::translate("MainWindow", "Department ID:", nullptr));
-        label_17->setText(QCoreApplication::translate("MainWindow", "Experience", nullptr));
-        label_18->setText(QCoreApplication::translate("MainWindow", "Doctor Id", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Okay", nullptr));
         QTableWidgetItem *___qtablewidgetitem14 = doctorsTable->horizontalHeaderItem(0);
         ___qtablewidgetitem14->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
         QTableWidgetItem *___qtablewidgetitem15 = doctorsTable->horizontalHeaderItem(1);
@@ -3628,7 +3633,30 @@ public:
         ___qtablewidgetitem22->setText(QCoreApplication::translate("MainWindow", "Experience", nullptr));
         QTableWidgetItem *___qtablewidgetitem23 = doctorsTable->horizontalHeaderItem(9);
         ___qtablewidgetitem23->setText(QCoreApplication::translate("MainWindow", "Availabilty", nullptr));
+        QTableWidgetItem *___qtablewidgetitem24 = doctorsTable->horizontalHeaderItem(10);
+        ___qtablewidgetitem24->setText(QCoreApplication::translate("MainWindow", "Fees", nullptr));
         doctor_editpushbutton->setText(QCoreApplication::translate("MainWindow", "Okay", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Date of Birth", nullptr));
+        label_11->setText(QCoreApplication::translate("MainWindow", "Gender", nullptr));
+        comboBox_gender->setItemText(0, QCoreApplication::translate("MainWindow", "Male", nullptr));
+        comboBox_gender->setItemText(1, QCoreApplication::translate("MainWindow", "Female", nullptr));
+        comboBox_gender->setItemText(2, QCoreApplication::translate("MainWindow", "Transgender", nullptr));
+
+        label_12->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
+        label_19->setText(QCoreApplication::translate("MainWindow", "Availabilty", nullptr));
+        slot_button->setText(QCoreApplication::translate("MainWindow", "Add Slot", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "Phone Number", nullptr));
+        label_14->setText(QCoreApplication::translate("MainWindow", "Specialization", nullptr));
+        comboBox_special->setItemText(0, QCoreApplication::translate("MainWindow", "Heart Attack", nullptr));
+        comboBox_special->setItemText(1, QCoreApplication::translate("MainWindow", "Brain Tumour", nullptr));
+        comboBox_special->setItemText(2, QCoreApplication::translate("MainWindow", "Keera", nullptr));
+
+        label_15->setText(QCoreApplication::translate("MainWindow", "Department ID:", nullptr));
+        label_17->setText(QCoreApplication::translate("MainWindow", "Experience", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Okay", nullptr));
+        label_18->setText(QCoreApplication::translate("MainWindow", "Doctor Id", nullptr));
+        doctorfee->setText(QCoreApplication::translate("MainWindow", "Doctorfee", nullptr));
         label_30->setText(QCoreApplication::translate("MainWindow", "Doctor No:", nullptr));
         deletepush->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
         mainTabWidget->setTabText(mainTabWidget->indexOf(doctorsTab), QCoreApplication::translate("MainWindow", "Doctors", nullptr));
@@ -3636,24 +3664,24 @@ public:
         editAppointmentBtn->setText(QCoreApplication::translate("MainWindow", "Edit Appointment", nullptr));
         deleteAppointmentBtn->setText(QCoreApplication::translate("MainWindow", "Delete Appointment", nullptr));
         completeAppointmentBtn->setText(QCoreApplication::translate("MainWindow", "Mark Complete", nullptr));
-        QTableWidgetItem *___qtablewidgetitem24 = appointtable->horizontalHeaderItem(0);
-        ___qtablewidgetitem24->setText(QCoreApplication::translate("MainWindow", "Appointment ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem25 = appointtable->horizontalHeaderItem(1);
-        ___qtablewidgetitem25->setText(QCoreApplication::translate("MainWindow", "Patient ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem26 = appointtable->horizontalHeaderItem(2);
-        ___qtablewidgetitem26->setText(QCoreApplication::translate("MainWindow", "Patient ", nullptr));
-        QTableWidgetItem *___qtablewidgetitem27 = appointtable->horizontalHeaderItem(3);
-        ___qtablewidgetitem27->setText(QCoreApplication::translate("MainWindow", "Doctor ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem28 = appointtable->horizontalHeaderItem(4);
-        ___qtablewidgetitem28->setText(QCoreApplication::translate("MainWindow", "Doctor", nullptr));
-        QTableWidgetItem *___qtablewidgetitem29 = appointtable->horizontalHeaderItem(5);
-        ___qtablewidgetitem29->setText(QCoreApplication::translate("MainWindow", "Date/Time", nullptr));
-        QTableWidgetItem *___qtablewidgetitem30 = appointtable->horizontalHeaderItem(6);
-        ___qtablewidgetitem30->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
-        QTableWidgetItem *___qtablewidgetitem31 = appointtable->horizontalHeaderItem(7);
-        ___qtablewidgetitem31->setText(QCoreApplication::translate("MainWindow", "Purpose", nullptr));
-        QTableWidgetItem *___qtablewidgetitem32 = appointtable->horizontalHeaderItem(8);
-        ___qtablewidgetitem32->setText(QCoreApplication::translate("MainWindow", "Prescriptions", nullptr));
+        QTableWidgetItem *___qtablewidgetitem25 = appointtable->horizontalHeaderItem(0);
+        ___qtablewidgetitem25->setText(QCoreApplication::translate("MainWindow", "Appointment ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem26 = appointtable->horizontalHeaderItem(1);
+        ___qtablewidgetitem26->setText(QCoreApplication::translate("MainWindow", "Patient ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem27 = appointtable->horizontalHeaderItem(2);
+        ___qtablewidgetitem27->setText(QCoreApplication::translate("MainWindow", "Patient ", nullptr));
+        QTableWidgetItem *___qtablewidgetitem28 = appointtable->horizontalHeaderItem(3);
+        ___qtablewidgetitem28->setText(QCoreApplication::translate("MainWindow", "Doctor ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem29 = appointtable->horizontalHeaderItem(4);
+        ___qtablewidgetitem29->setText(QCoreApplication::translate("MainWindow", "Doctor", nullptr));
+        QTableWidgetItem *___qtablewidgetitem30 = appointtable->horizontalHeaderItem(5);
+        ___qtablewidgetitem30->setText(QCoreApplication::translate("MainWindow", "Date/Time", nullptr));
+        QTableWidgetItem *___qtablewidgetitem31 = appointtable->horizontalHeaderItem(6);
+        ___qtablewidgetitem31->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
+        QTableWidgetItem *___qtablewidgetitem32 = appointtable->horizontalHeaderItem(7);
+        ___qtablewidgetitem32->setText(QCoreApplication::translate("MainWindow", "Purpose", nullptr));
+        QTableWidgetItem *___qtablewidgetitem33 = appointtable->horizontalHeaderItem(8);
+        ___qtablewidgetitem33->setText(QCoreApplication::translate("MainWindow", "Prescriptions", nullptr));
         appointeditbutton->setText(QCoreApplication::translate("MainWindow", "Okay", nullptr));
         label_37->setText(QCoreApplication::translate("MainWindow", "Enter Appointment Row:", nullptr));
         appointmentdeletepushbutton->setText(QCoreApplication::translate("MainWindow", "Okay", nullptr));
@@ -3678,24 +3706,24 @@ public:
         deleteNurseBtn->setText(QCoreApplication::translate("MainWindow", "Delete Nurse", nullptr));
         nurseSearchBox->setText(QString());
         nurseSearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search nurses...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem33 = nursesTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem33->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem34 = nursesTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem34->setText(QCoreApplication::translate("MainWindow", "Dob", nullptr));
-        QTableWidgetItem *___qtablewidgetitem35 = nursesTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem35->setText(QCoreApplication::translate("MainWindow", "Gender", nullptr));
-        QTableWidgetItem *___qtablewidgetitem36 = nursesTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem36->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
-        QTableWidgetItem *___qtablewidgetitem37 = nursesTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem37->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
-        QTableWidgetItem *___qtablewidgetitem38 = nursesTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem38->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem39 = nursesTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem39->setText(QCoreApplication::translate("MainWindow", "Specialization", nullptr));
-        QTableWidgetItem *___qtablewidgetitem40 = nursesTable->horizontalHeaderItem(7);
-        ___qtablewidgetitem40->setText(QCoreApplication::translate("MainWindow", "Availabilty", nullptr));
-        QTableWidgetItem *___qtablewidgetitem41 = nursesTable->horizontalHeaderItem(8);
-        ___qtablewidgetitem41->setText(QCoreApplication::translate("MainWindow", "Experience", nullptr));
+        QTableWidgetItem *___qtablewidgetitem34 = nursesTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem34->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem35 = nursesTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem35->setText(QCoreApplication::translate("MainWindow", "Dob", nullptr));
+        QTableWidgetItem *___qtablewidgetitem36 = nursesTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem36->setText(QCoreApplication::translate("MainWindow", "Gender", nullptr));
+        QTableWidgetItem *___qtablewidgetitem37 = nursesTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem37->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
+        QTableWidgetItem *___qtablewidgetitem38 = nursesTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem38->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
+        QTableWidgetItem *___qtablewidgetitem39 = nursesTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem39->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem40 = nursesTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem40->setText(QCoreApplication::translate("MainWindow", "Specialization", nullptr));
+        QTableWidgetItem *___qtablewidgetitem41 = nursesTable->horizontalHeaderItem(7);
+        ___qtablewidgetitem41->setText(QCoreApplication::translate("MainWindow", "Availabilty", nullptr));
+        QTableWidgetItem *___qtablewidgetitem42 = nursesTable->horizontalHeaderItem(8);
+        ___qtablewidgetitem42->setText(QCoreApplication::translate("MainWindow", "Experience", nullptr));
         label_39->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
         label_40->setText(QCoreApplication::translate("MainWindow", "Date of Birth", nullptr));
         label_41->setText(QCoreApplication::translate("MainWindow", "Gender", nullptr));
@@ -3726,22 +3754,22 @@ public:
         editReceptionistBtn->setText(QCoreApplication::translate("MainWindow", "Edit Receptionist", nullptr));
         deleteReceptionistBtn->setText(QCoreApplication::translate("MainWindow", "Delete Receptionist", nullptr));
         receptionistSearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search receptionists...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem42 = receptionistsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem42->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem43 = receptionistsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem43->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem44 = receptionistsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem44->setText(QCoreApplication::translate("MainWindow", "New Column", nullptr));
-        QTableWidgetItem *___qtablewidgetitem45 = receptionistsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem45->setText(QCoreApplication::translate("MainWindow", "DOB", nullptr));
-        QTableWidgetItem *___qtablewidgetitem46 = receptionistsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem46->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
-        QTableWidgetItem *___qtablewidgetitem47 = receptionistsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem47->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
-        QTableWidgetItem *___qtablewidgetitem48 = receptionistsTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem48->setText(QCoreApplication::translate("MainWindow", "Salary", nullptr));
-        QTableWidgetItem *___qtablewidgetitem49 = receptionistsTable->horizontalHeaderItem(7);
-        ___qtablewidgetitem49->setText(QCoreApplication::translate("MainWindow", "Avalability", nullptr));
+        QTableWidgetItem *___qtablewidgetitem43 = receptionistsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem43->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem44 = receptionistsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem44->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem45 = receptionistsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem45->setText(QCoreApplication::translate("MainWindow", "New Column", nullptr));
+        QTableWidgetItem *___qtablewidgetitem46 = receptionistsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem46->setText(QCoreApplication::translate("MainWindow", "DOB", nullptr));
+        QTableWidgetItem *___qtablewidgetitem47 = receptionistsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem47->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
+        QTableWidgetItem *___qtablewidgetitem48 = receptionistsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem48->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
+        QTableWidgetItem *___qtablewidgetitem49 = receptionistsTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem49->setText(QCoreApplication::translate("MainWindow", "Salary", nullptr));
+        QTableWidgetItem *___qtablewidgetitem50 = receptionistsTable->horizontalHeaderItem(7);
+        ___qtablewidgetitem50->setText(QCoreApplication::translate("MainWindow", "Avalability", nullptr));
         label_46->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
         label_49->setText(QCoreApplication::translate("MainWindow", "Date of Birth", nullptr));
         label_50->setText(QCoreApplication::translate("MainWindow", "Gender", nullptr));
@@ -3765,22 +3793,22 @@ public:
         editAdminBtn->setText(QCoreApplication::translate("MainWindow", "Edit Admin", nullptr));
         deleteAdminBtn->setText(QCoreApplication::translate("MainWindow", "Delete Admin", nullptr));
         adminSearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search admins...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem50 = adminsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem50->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem51 = adminsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem51->setText(QCoreApplication::translate("MainWindow", "DOB", nullptr));
-        QTableWidgetItem *___qtablewidgetitem52 = adminsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem52->setText(QCoreApplication::translate("MainWindow", "Gender", nullptr));
-        QTableWidgetItem *___qtablewidgetitem53 = adminsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem53->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
-        QTableWidgetItem *___qtablewidgetitem54 = adminsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem54->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
-        QTableWidgetItem *___qtablewidgetitem55 = adminsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem55->setText(QCoreApplication::translate("MainWindow", "Position", nullptr));
-        QTableWidgetItem *___qtablewidgetitem56 = adminsTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem56->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem57 = adminsTable->horizontalHeaderItem(7);
-        ___qtablewidgetitem57->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
+        QTableWidgetItem *___qtablewidgetitem51 = adminsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem51->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem52 = adminsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem52->setText(QCoreApplication::translate("MainWindow", "DOB", nullptr));
+        QTableWidgetItem *___qtablewidgetitem53 = adminsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem53->setText(QCoreApplication::translate("MainWindow", "Gender", nullptr));
+        QTableWidgetItem *___qtablewidgetitem54 = adminsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem54->setText(QCoreApplication::translate("MainWindow", "Address", nullptr));
+        QTableWidgetItem *___qtablewidgetitem55 = adminsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem55->setText(QCoreApplication::translate("MainWindow", "Contact", nullptr));
+        QTableWidgetItem *___qtablewidgetitem56 = adminsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem56->setText(QCoreApplication::translate("MainWindow", "Position", nullptr));
+        QTableWidgetItem *___qtablewidgetitem57 = adminsTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem57->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem58 = adminsTable->horizontalHeaderItem(7);
+        ___qtablewidgetitem58->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
         label_54->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
         label_55->setText(QCoreApplication::translate("MainWindow", "Date of Birth", nullptr));
         label_57->setText(QCoreApplication::translate("MainWindow", "Gender", nullptr));
@@ -3810,20 +3838,20 @@ public:
         editWardBtn->setText(QCoreApplication::translate("MainWindow", "Edit Ward", nullptr));
         deleteWardBtn->setText(QCoreApplication::translate("MainWindow", "Delete Ward", nullptr));
         wardSearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search wards...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem58 = wardsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem58->setText(QCoreApplication::translate("MainWindow", "Ward ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem59 = wardsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem59->setText(QCoreApplication::translate("MainWindow", "Department ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem60 = wardsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem60->setText(QCoreApplication::translate("MainWindow", "Ward Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem61 = wardsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem61->setText(QCoreApplication::translate("MainWindow", "Head Nurse", nullptr));
-        QTableWidgetItem *___qtablewidgetitem62 = wardsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem62->setText(QCoreApplication::translate("MainWindow", "# of Rooms", nullptr));
-        QTableWidgetItem *___qtablewidgetitem63 = wardsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem63->setText(QCoreApplication::translate("MainWindow", "# of Beds", nullptr));
-        QTableWidgetItem *___qtablewidgetitem64 = wardsTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem64->setText(QCoreApplication::translate("MainWindow", "# of Nurses", nullptr));
+        QTableWidgetItem *___qtablewidgetitem59 = wardsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem59->setText(QCoreApplication::translate("MainWindow", "Ward ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem60 = wardsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem60->setText(QCoreApplication::translate("MainWindow", "Department ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem61 = wardsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem61->setText(QCoreApplication::translate("MainWindow", "Ward Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem62 = wardsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem62->setText(QCoreApplication::translate("MainWindow", "Head Nurse", nullptr));
+        QTableWidgetItem *___qtablewidgetitem63 = wardsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem63->setText(QCoreApplication::translate("MainWindow", "# of Rooms", nullptr));
+        QTableWidgetItem *___qtablewidgetitem64 = wardsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem64->setText(QCoreApplication::translate("MainWindow", "# of Beds", nullptr));
+        QTableWidgetItem *___qtablewidgetitem65 = wardsTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem65->setText(QCoreApplication::translate("MainWindow", "# of Nurses", nullptr));
         label_63->setText(QCoreApplication::translate("MainWindow", "Ward ID: ", nullptr));
         label_64->setText(QCoreApplication::translate("MainWindow", "Name: ", nullptr));
         label_65->setText(QCoreApplication::translate("MainWindow", "Department: ", nullptr));
@@ -3847,16 +3875,16 @@ public:
         editRoomBtn->setText(QCoreApplication::translate("MainWindow", "Edit Room", nullptr));
         deleteRoomBtn->setText(QCoreApplication::translate("MainWindow", "Delete Room", nullptr));
         roomSearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search rooms...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem65 = roomsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem65->setText(QCoreApplication::translate("MainWindow", "Room ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem66 = roomsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem66->setText(QCoreApplication::translate("MainWindow", "Ward ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem67 = roomsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem67->setText(QCoreApplication::translate("MainWindow", "Assigned Nurse", nullptr));
-        QTableWidgetItem *___qtablewidgetitem68 = roomsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem68->setText(QCoreApplication::translate("MainWindow", "Assigned Nurse ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem69 = roomsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem69->setText(QCoreApplication::translate("MainWindow", "# of Beds", nullptr));
+        QTableWidgetItem *___qtablewidgetitem66 = roomsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem66->setText(QCoreApplication::translate("MainWindow", "Room ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem67 = roomsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem67->setText(QCoreApplication::translate("MainWindow", "Ward ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem68 = roomsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem68->setText(QCoreApplication::translate("MainWindow", "Assigned Nurse", nullptr));
+        QTableWidgetItem *___qtablewidgetitem69 = roomsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem69->setText(QCoreApplication::translate("MainWindow", "Assigned Nurse ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem70 = roomsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem70->setText(QCoreApplication::translate("MainWindow", "# of Beds", nullptr));
         label_68->setText(QCoreApplication::translate("MainWindow", "Room ID: ", nullptr));
         label_70->setText(QCoreApplication::translate("MainWindow", "Department: ", nullptr));
         room_dep->setItemText(0, QCoreApplication::translate("MainWindow", "Male", nullptr));
@@ -3876,14 +3904,14 @@ public:
         editRoomBtn_2->setText(QCoreApplication::translate("MainWindow", "Edit Bed", nullptr));
         deleteRoomBtn_2->setText(QCoreApplication::translate("MainWindow", "Delete Bed", nullptr));
         roomSearchBox_2->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search beds..", nullptr));
-        QTableWidgetItem *___qtablewidgetitem70 = bedsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem70->setText(QCoreApplication::translate("MainWindow", "Bed ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem71 = bedsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem71->setText(QCoreApplication::translate("MainWindow", "Room ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem72 = bedsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem72->setText(QCoreApplication::translate("MainWindow", "Ass. Patient Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem73 = bedsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem73->setText(QCoreApplication::translate("MainWindow", "Ass. Patient ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem71 = bedsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem71->setText(QCoreApplication::translate("MainWindow", "Bed ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem72 = bedsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem72->setText(QCoreApplication::translate("MainWindow", "Room ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem73 = bedsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem73->setText(QCoreApplication::translate("MainWindow", "Ass. Patient Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem74 = bedsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem74->setText(QCoreApplication::translate("MainWindow", "Ass. Patient ID", nullptr));
         label_69->setText(QCoreApplication::translate("MainWindow", "Bed ID: ", nullptr));
         label_72->setText(QCoreApplication::translate("MainWindow", "Department: ", nullptr));
         comboBox_gender_11->setItemText(0, QCoreApplication::translate("MainWindow", "Male", nullptr));
@@ -3901,22 +3929,22 @@ public:
         editDepartmentBtn->setText(QCoreApplication::translate("MainWindow", "Edit Department", nullptr));
         deleteDepartmentBtn->setText(QCoreApplication::translate("MainWindow", "Delete Department", nullptr));
         departmentSearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search departments...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem74 = departmentsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem74->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem75 = departmentsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem75->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem76 = departmentsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem76->setText(QCoreApplication::translate("MainWindow", "Head Doctor", nullptr));
-        QTableWidgetItem *___qtablewidgetitem77 = departmentsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem77->setText(QCoreApplication::translate("MainWindow", "# of Wards", nullptr));
-        QTableWidgetItem *___qtablewidgetitem78 = departmentsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem78->setText(QCoreApplication::translate("MainWindow", "# of Doctors", nullptr));
-        QTableWidgetItem *___qtablewidgetitem79 = departmentsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem79->setText(QCoreApplication::translate("MainWindow", "# of Rooms", nullptr));
-        QTableWidgetItem *___qtablewidgetitem80 = departmentsTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem80->setText(QCoreApplication::translate("MainWindow", "# of Beds", nullptr));
-        QTableWidgetItem *___qtablewidgetitem81 = departmentsTable->horizontalHeaderItem(7);
-        ___qtablewidgetitem81->setText(QCoreApplication::translate("MainWindow", "Services", nullptr));
+        QTableWidgetItem *___qtablewidgetitem75 = departmentsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem75->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem76 = departmentsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem76->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem77 = departmentsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem77->setText(QCoreApplication::translate("MainWindow", "Head Doctor", nullptr));
+        QTableWidgetItem *___qtablewidgetitem78 = departmentsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem78->setText(QCoreApplication::translate("MainWindow", "# of Wards", nullptr));
+        QTableWidgetItem *___qtablewidgetitem79 = departmentsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem79->setText(QCoreApplication::translate("MainWindow", "# of Doctors", nullptr));
+        QTableWidgetItem *___qtablewidgetitem80 = departmentsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem80->setText(QCoreApplication::translate("MainWindow", "# of Rooms", nullptr));
+        QTableWidgetItem *___qtablewidgetitem81 = departmentsTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem81->setText(QCoreApplication::translate("MainWindow", "# of Beds", nullptr));
+        QTableWidgetItem *___qtablewidgetitem82 = departmentsTable->horizontalHeaderItem(7);
+        ___qtablewidgetitem82->setText(QCoreApplication::translate("MainWindow", "Services", nullptr));
         label_74->setText(QCoreApplication::translate("MainWindow", "Department ID: ", nullptr));
         label_75->setText(QCoreApplication::translate("MainWindow", "Name: ", nullptr));
         label_77->setText(QCoreApplication::translate("MainWindow", "Head Doctor: ", nullptr));
@@ -3934,16 +3962,16 @@ public:
         deleteInventoryBtn->setText(QCoreApplication::translate("MainWindow", "Delete Medicine", nullptr));
         restockInventoryBtn->setText(QCoreApplication::translate("MainWindow", "Restock", nullptr));
         inventorySearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search inventory...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem82 = pharmacytable->horizontalHeaderItem(0);
-        ___qtablewidgetitem82->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem83 = pharmacytable->horizontalHeaderItem(1);
-        ___qtablewidgetitem83->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem84 = pharmacytable->horizontalHeaderItem(2);
-        ___qtablewidgetitem84->setText(QCoreApplication::translate("MainWindow", "Company", nullptr));
-        QTableWidgetItem *___qtablewidgetitem85 = pharmacytable->horizontalHeaderItem(3);
-        ___qtablewidgetitem85->setText(QCoreApplication::translate("MainWindow", "Price", nullptr));
-        QTableWidgetItem *___qtablewidgetitem86 = pharmacytable->horizontalHeaderItem(4);
-        ___qtablewidgetitem86->setText(QCoreApplication::translate("MainWindow", "Stock", nullptr));
+        QTableWidgetItem *___qtablewidgetitem83 = pharmacytable->horizontalHeaderItem(0);
+        ___qtablewidgetitem83->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem84 = pharmacytable->horizontalHeaderItem(1);
+        ___qtablewidgetitem84->setText(QCoreApplication::translate("MainWindow", "Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem85 = pharmacytable->horizontalHeaderItem(2);
+        ___qtablewidgetitem85->setText(QCoreApplication::translate("MainWindow", "Company", nullptr));
+        QTableWidgetItem *___qtablewidgetitem86 = pharmacytable->horizontalHeaderItem(3);
+        ___qtablewidgetitem86->setText(QCoreApplication::translate("MainWindow", "Price", nullptr));
+        QTableWidgetItem *___qtablewidgetitem87 = pharmacytable->horizontalHeaderItem(4);
+        ___qtablewidgetitem87->setText(QCoreApplication::translate("MainWindow", "Stock", nullptr));
         edit_med_push->setText(QCoreApplication::translate("MainWindow", "Okay", nullptr));
         label_76->setText(QCoreApplication::translate("MainWindow", "Medicine ID:", nullptr));
         label_78->setText(QCoreApplication::translate("MainWindow", "Medicine Name:", nullptr));
@@ -3962,47 +3990,45 @@ public:
         generateBillBtn->setText(QCoreApplication::translate("MainWindow", "Generate Bill", nullptr));
         viewBillBtn->setText(QCoreApplication::translate("MainWindow", "View Bill", nullptr));
         processPaymentBtn->setText(QCoreApplication::translate("MainWindow", "Process Payment", nullptr));
-        applyInsuranceBtn->setText(QCoreApplication::translate("MainWindow", "Apply Insurance", nullptr));
         billingSearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search bills...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem87 = billsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem87->setText(QCoreApplication::translate("MainWindow", "Bill ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem88 = billsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem88->setText(QCoreApplication::translate("MainWindow", "Patient", nullptr));
-        QTableWidgetItem *___qtablewidgetitem89 = billsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem89->setText(QCoreApplication::translate("MainWindow", "Date", nullptr));
-        QTableWidgetItem *___qtablewidgetitem90 = billsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem90->setText(QCoreApplication::translate("MainWindow", "Amount", nullptr));
-        QTableWidgetItem *___qtablewidgetitem91 = billsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem91->setText(QCoreApplication::translate("MainWindow", "Paid", nullptr));
-        QTableWidgetItem *___qtablewidgetitem92 = billsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem92->setText(QCoreApplication::translate("MainWindow", "Balance", nullptr));
-        QTableWidgetItem *___qtablewidgetitem93 = billsTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem93->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
-        paymentDetailsGroup->setTitle(QCoreApplication::translate("MainWindow", "Payment Details", nullptr));
-        totalAmountLabel->setText(QCoreApplication::translate("MainWindow", "Total Amount: $0.00", nullptr));
-        paidAmountLabel->setText(QCoreApplication::translate("MainWindow", "Paid: $0.00", nullptr));
-        balanceLabel->setText(QCoreApplication::translate("MainWindow", "Balance: $0.00", nullptr));
-        insuranceLabel->setText(QCoreApplication::translate("MainWindow", "Insurance: None", nullptr));
+        QTableWidgetItem *___qtablewidgetitem88 = billsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem88->setText(QCoreApplication::translate("MainWindow", "Bill ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem89 = billsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem89->setText(QCoreApplication::translate("MainWindow", "Patient", nullptr));
+        QTableWidgetItem *___qtablewidgetitem90 = billsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem90->setText(QCoreApplication::translate("MainWindow", "Date", nullptr));
+        QTableWidgetItem *___qtablewidgetitem91 = billsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem91->setText(QCoreApplication::translate("MainWindow", "Doctor Fee", nullptr));
+        QTableWidgetItem *___qtablewidgetitem92 = billsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem92->setText(QCoreApplication::translate("MainWindow", "Medicine Fee", nullptr));
+        QTableWidgetItem *___qtablewidgetitem93 = billsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem93->setText(QCoreApplication::translate("MainWindow", "Lab Fee", nullptr));
+        QTableWidgetItem *___qtablewidgetitem94 = billsTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem94->setText(QCoreApplication::translate("MainWindow", "Amount", nullptr));
+        QTableWidgetItem *___qtablewidgetitem95 = billsTable->horizontalHeaderItem(7);
+        ___qtablewidgetitem95->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
+        nurseIDLabel_7->setText(QCoreApplication::translate("MainWindow", "Patient ID:", nullptr));
+        bill_gen->setText(QCoreApplication::translate("MainWindow", "Generate", nullptr));
         mainTabWidget->setTabText(mainTabWidget->indexOf(billingTab), QCoreApplication::translate("MainWindow", "Billing", nullptr));
         scheduleTestBtn->setText(QCoreApplication::translate("MainWindow", "Schedule Test", nullptr));
         editTestBtn->setText(QCoreApplication::translate("MainWindow", "Edit Booking", nullptr));
         cancelTestBtn->setText(QCoreApplication::translate("MainWindow", "Delete Booking", nullptr));
         completeTestBtn->setText(QCoreApplication::translate("MainWindow", "Complete Booking", nullptr));
         testSearchBox->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search tests...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem94 = testsTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem94->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem95 = testsTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem95->setText(QCoreApplication::translate("MainWindow", "Test ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem96 = testsTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem96->setText(QCoreApplication::translate("MainWindow", "Test Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem97 = testsTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem97->setText(QCoreApplication::translate("MainWindow", "Patient ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem98 = testsTable->horizontalHeaderItem(4);
-        ___qtablewidgetitem98->setText(QCoreApplication::translate("MainWindow", "Req Doctor ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem99 = testsTable->horizontalHeaderItem(5);
-        ___qtablewidgetitem99->setText(QCoreApplication::translate("MainWindow", "Date Requested", nullptr));
-        QTableWidgetItem *___qtablewidgetitem100 = testsTable->horizontalHeaderItem(6);
-        ___qtablewidgetitem100->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
+        QTableWidgetItem *___qtablewidgetitem96 = testsTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem96->setText(QCoreApplication::translate("MainWindow", "ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem97 = testsTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem97->setText(QCoreApplication::translate("MainWindow", "Test ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem98 = testsTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem98->setText(QCoreApplication::translate("MainWindow", "Test Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem99 = testsTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem99->setText(QCoreApplication::translate("MainWindow", "Patient ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem100 = testsTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem100->setText(QCoreApplication::translate("MainWindow", "Req Doctor ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem101 = testsTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem101->setText(QCoreApplication::translate("MainWindow", "Date Requested", nullptr));
+        QTableWidgetItem *___qtablewidgetitem102 = testsTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem102->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
         laboraty_push_button->setText(QCoreApplication::translate("MainWindow", "okay", nullptr));
         label_86->setText(QCoreApplication::translate("MainWindow", "Booking ID;", nullptr));
         lab_del_push_2->setText(QCoreApplication::translate("MainWindow", "Delete", nullptr));
@@ -4018,14 +4044,14 @@ public:
         editTestBtn_2->setText(QCoreApplication::translate("MainWindow", "Edit Test", nullptr));
         cancelTestBtn_2->setText(QCoreApplication::translate("MainWindow", "Delete Test", nullptr));
         testSearchBox_2->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search tests...", nullptr));
-        QTableWidgetItem *___qtablewidgetitem101 = testsdataTable->horizontalHeaderItem(0);
-        ___qtablewidgetitem101->setText(QCoreApplication::translate("MainWindow", "Test ID", nullptr));
-        QTableWidgetItem *___qtablewidgetitem102 = testsdataTable->horizontalHeaderItem(1);
-        ___qtablewidgetitem102->setText(QCoreApplication::translate("MainWindow", "Test Name", nullptr));
-        QTableWidgetItem *___qtablewidgetitem103 = testsdataTable->horizontalHeaderItem(2);
-        ___qtablewidgetitem103->setText(QCoreApplication::translate("MainWindow", "Test Price", nullptr));
-        QTableWidgetItem *___qtablewidgetitem104 = testsdataTable->horizontalHeaderItem(3);
-        ___qtablewidgetitem104->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
+        QTableWidgetItem *___qtablewidgetitem103 = testsdataTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem103->setText(QCoreApplication::translate("MainWindow", "Test ID", nullptr));
+        QTableWidgetItem *___qtablewidgetitem104 = testsdataTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem104->setText(QCoreApplication::translate("MainWindow", "Test Name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem105 = testsdataTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem105->setText(QCoreApplication::translate("MainWindow", "Test Price", nullptr));
+        QTableWidgetItem *___qtablewidgetitem106 = testsdataTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem106->setText(QCoreApplication::translate("MainWindow", "Status", nullptr));
         testdata_pushbutton->setText(QCoreApplication::translate("MainWindow", "Okay", nullptr));
         label_91->setText(QCoreApplication::translate("MainWindow", "Test ID:", nullptr));
         label_92->setText(QCoreApplication::translate("MainWindow", "Test Name:", nullptr));

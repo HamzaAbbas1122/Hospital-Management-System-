@@ -1,60 +1,48 @@
 #include "bills.h"
 
-bills::	bills(
-        QString ptnm, QString dtmn, int dcid, int pid, int bid,
-        float tocost, float dfee, float mfee, float tfee,
-        float tretcost, QString billstat, QString billdate, int patbed) {
-        pname = ptnm;
-        dname = dtmn;
-        docid = dcid;
-        patid = pid;
-        billid = bid;
-        totalfee = tocost;
-        doctorfee = dfee;
-        medicinefee = mfee;
-        trtcost = tretcost;
-        bstat = billstat;
-        bdate = billdate;
-        pbed = patbed;
+bills::
+    bills(
+         int patid, int billid,
+        float totalfee, float doctorfee, float medicinefee, float trtcost,
+         QString bstat, QString bdate){
+
+        this-> patid = patid;
+        this-> billid = billid;
+        this-> totalfee = totalfee;
+        this-> doctorfee = doctorfee;
+        this-> medicinefee = medicinefee;
+        this-> trtcost = trtcost;
+       this->  bstat = bstat;
+        this->  bdate = bdate;
+
     }
-    void bills::calculatebill() {
+
+    float bills::calculatebill() {
+
         totalfee = 0;
         totalfee = doctorfee + medicinefee + trtcost;
-
-    }
-
-    void bills:: display() {
-        qDebug() << "Bill id : " << billid << "\n" << "Bill date: " << bdate << "\n"
-            << "Bill Status: " << bstat << "\n" << "Bill date: " << bdate << "\n"
-            << "Patient: " << pname << " with patient id:  " << patid << " Bed Number: " << pbed << "\n"
-            << "Doctor : " << dname << " Doctor id : " << docid<<"\n"
-            << "Doctor Fees : " << doctorfee << "\n"
-            << "Medicine Fees : " << medicinefee << "\n"
-            << "Treatement Fees : " << trtcost << "\n"
-            << "Total Fees : " << totalfee << "\n";
+        return totalfee;
 
     }
 
 
 
-    void bills:: setdocid(int docid) {
-        this->docid = docid;
-    }
-    int bills:: getdocid() {
-        return docid;
-    }
+
     void bills:: setpatid(int patid) {
         this->patid = patid;
     }
+
     int bills:: getpatid() {
         return patid;
     }
+
     void bills:: setbdate(QString bdate) {
         this->bdate = bdate;
     }
     QString bills:: getbdate() {
         return bdate;
     }
+
     void  bills:: setbstat(QString bstat) {
         this->bstat = bstat;
     }
@@ -84,4 +72,7 @@ bills::	bills(
     }
     float bills::getttotalfee() {
         return totalfee;
+    }
+    int bills::getbid(){
+        return billid;
     }

@@ -5,7 +5,6 @@
 class bills {
 
 private:
-    int docid;
 
     int patid;
     int billid;
@@ -13,20 +12,19 @@ private:
     float doctorfee;
     float medicinefee;
     float totalfee;
-    QString pname;
-    QString dname;
+
     QString bstat;
     QString bdate;
-    int pbed;
 
 public:
     bills(
-        QString ptnm, QString dtmn, int dcid, int pid, int bid,
-        float tocost, float dfee, float mfee, float tfee,
-        float tretcost, QString billstat, QString billdate, int patbed);
+        int patid, int billid,
+        float totalfee, float doctorfee, float medicinefee, float trtcost,
+        QString bstat, QString bdate);
 
-    void calculatebill();
-    void display();
+    float calculatebill();
+
+    int getbid();
     void setdocid(int docid);
     int getdocid() ;
     void setpatid(int patid);
