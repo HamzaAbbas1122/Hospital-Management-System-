@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AIChatWindow</class>
+ <widget class="QMainWindow" name="AIChatWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Bajwa Hospital AI Assistant</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+/* Main Window - Professional Medical Style */
+QMainWindow {
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* All Text Elements - Pure Black */
+* {
+    color: #000000;
+}
+
+/* Header Styling */
+#logoLabel {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px 0;
+    color: #000000;
+}
+
+/* Group Boxes - Clean White with Subtle Border */
+QGroupBox {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 8px;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* Text Input Areas - White Background */
+QTextEdit {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    color: #000000;
+    selection-background-color: #1e90ff;
+    selection-color: white;
+}
+
+QTextEdit:focus {
+    border: 1px solid #1e90ff;
+}
+
+/* Professional Blue Buttons */
+QPushButton {
+    background-color: #1e90ff;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-weight: 600;
+    min-width: 100px;
+    border: none;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #187bcd;
+}
+
+QPushButton:pressed {
+    background-color: #1565a7;
+}
+
+/* Clear Button - Secondary Style */
+QPushButton#clearButton {
+    background-color: #f5f5f5;
+    color: #000000;
+    border: 1px solid #e0e0e0;
+}
+
+QPushButton#clearButton:hover {
+    background-color: #e0e0e0;
+}
+
+/* Status Bar - Visible and Professional */
+QStatusBar {
+    background-color: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    font-size: 12px;
+    color: #000000;
+    padding: 4px;
+}
+
+/* Menu Bar - Visible and Clean */
+QMenuBar {
+    background-color: #ffffff;
+    padding: 4px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+QMenuBar::item {
+    padding: 4px 10px;
+    background-color: transparent;
+    color: #000000;
+}
+
+QMenuBar::item:selected {
+    background-color: #e0e0e0;
+}
+
+QMenuBar::item:pressed {
+    background-color: #d0d0d0;
+}
+
+/* Toolbar - Visible and Minimal */
+QToolBar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 2px;
+    spacing: 3px;
+}
+
+/* Placeholder Text - Subtle Gray */
+QTextEdit[placeholderText] {
+    color: #95a5a6;
+    font-style: italic;
+}
+
+/* Menu Styling */
+QMenu {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 4px;
+}
+
+QMenu::item {
+    padding: 6px 24px 6px 20px;
+}
+
+QMenu::item:selected {
+    background-color: #1e90ff;
+    color: white;
+}
+
+QMenu::separator {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 4px 0;
+}
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="logoLabel">
+      <property name="text">
+       <string>Bajwa Hospital AI Assistant</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Hospital Inquiry</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTextEdit" name="promptEdit">
+         <property name="acceptRichText">
+          <bool>false</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Type your question about patient records, appointments, or hospital operations...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="sendButton">
+           <property name="text">
+            <string>&amp;Ask Assistant</string>
+           </property>
+           <property name="shortcut">
+            <string>Ctrl+Return</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="clearButton">
+           <property name="text">
+            <string>&amp;Clear</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>AI Assistant Response</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QTextEdit" name="responseEdit">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Response will appear here...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;Assistant</string>
+    </property>
+    <addaction name="actionSettings"/>
+    <addaction name="actionAbout"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="currentIndex" stdset="0">
+    <number>-1</number>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>Toolbar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionSettings"/>
+   <addaction name="actionAbout"/>
+  </widget>
+  <action name="actionSettings">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Settings</string>
+   </property>
+   <property name="toolTip">
+    <string>Configure assistant settings</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::PreferencesRole</enum>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::QuitRole</enum>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::AboutRole</enum>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

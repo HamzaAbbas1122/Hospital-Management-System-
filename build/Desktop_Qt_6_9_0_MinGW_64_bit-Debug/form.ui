@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1303</width>
+    <height>603</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #0a2463;</string>
+  </property>
+  <widget class="QLabel" name="welcomeLabel">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>80</y>
+     <width>1086</width>
+     <height>72</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #d7f9ff;
+       font: 500 36pt &quot;Poppins&quot;;
+       letter-spacing: 5px;</string>
+   </property>
+   <property name="text">
+    <string>WELCOME TO</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sloganLabel">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>340</y>
+     <width>1086</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #d7f9ff;
+       font: 300 18pt &quot;Poppins&quot;;
+       letter-spacing: 2px;</string>
+   </property>
+   <property name="text">
+    <string>Advanced Healthcare Solutions</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="enterButton">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>530</y>
+     <width>1086</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+           background-color: transparent;
+           color: #3e92cc;
+           border: 2px solid #3e92cc;
+           border-radius: 25px;
+           padding: 15px 30px;
+           font: bold 14pt &quot;Poppins&quot;;
+           min-width: 200px;
+       }
+       QPushButton:hover {
+           background-color: rgba(62, 146, 204, 0.2);
+       }
+       QPushButton:pressed {
+           background-color: rgba(62, 146, 204, 0.4);
+       }</string>
+   </property>
+   <property name="text">
+    <string>ENTER SYSTEM</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="hospitalLabel">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>170</y>
+     <width>1086</width>
+     <height>185</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #3e92cc;
+       font: 700 72pt &quot;Poppins&quot;;
+       margin: 20px 0;</string>
+   </property>
+   <property name="text">
+    <string>BAJWA HOSPITAL</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

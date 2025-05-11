@@ -1,0 +1,20 @@
+M001 | Paracetamol | ABC Pharma | 5.99 | 100 | 
+M002 | Ibuprofen | XYZ Meds | 7.50 | 75 | 
+M003 | Amoxicillin | HealthPlus | 12.99 | 50 | 
+M004 | Loratadine | AllergyFree | 8.25 | 120 | 
+M005 | Omeprazole | DigestCare | 15.75 | 60 | 
+M006 | Cetirizine | AllergyFree | 6.50 | 90 | 
+M007 | Aspirin | ABC Pharma | 4.99 | 200 | 
+M008 | Metformin | DiabetoCare | 9.99 | 80 | 
+M009 | Atorvastatin | HeartHealth | 18.50 | 45 | 
+M010 | Ciprofloxacin | BioPharm | 22.99 | 30 | 
+M011 | Diazepam | NeuroCare | 14.25 | 40 | 
+M012 | Sertraline | MindWell | 16.75 | 55 | 
+M013 | Losartan | HeartHealth | 11.50 | 70 | 
+M014 | Levothyroxine | ThyroCare | 13.25 | 65 | 
+M015 | Albuterol | LungHealth | 19.99 | 35 | 
+M016 | Simvastatin | HeartHealth | 17.50 | 50 | 
+M017 | Hydrochlorothiazide | RenalCare | 8.99 | 85 | 
+M018 | Metoprolol | CardioCare | 10.25 | 60 | 
+M019 | Pantoprazole | DigestCare | 14.99 | 45 | 
+M020 | Fluoxetine | MindWell | 12.75 | 50 | 

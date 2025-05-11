@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DoctorUI</class>
+ <widget class="QMainWindow" name="DoctorUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Doctor Management - Bajwa Hospital</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+      /* Main Window Styling */
+      QMainWindow {
+        background-color: #f5f7fa;
+        font-family: 'Segoe UI', Arial, sans-serif;
+      }
+      
+      /* Scroll Area Styling */
+      QScrollArea {
+        border: none;
+        background: transparent;
+      }
+      
+      /* Group Box Styling */
+      QGroupBox {
+        border: 1px solid #d1d9e6;
+        border-radius: 8px;
+        margin-top: 10px;
+        padding-top: 15px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #000000;
+        background: #ffffff;
+      }
+      
+      QGroupBox::title {
+        subcontrol-origin: margin;
+        left: 10px;
+        padding: 0 5px;
+        color: #000000;
+      }
+      
+      /* Label Styling */
+      QLabel {
+        color: #000000;
+        font-size: 13px;
+        font-weight: 500;
+      }
+      
+      /* Input Field Styling */
+      QLineEdit, QDateEdit, QTextEdit {
+        border: 1px solid #d1d9e6;
+        border-radius: 4px;
+        padding: 8px 12px;
+        font-size: 13px;
+        min-width: 250px;
+        color: #000000;
+        background: #ffffff;
+      }
+      
+      QLineEdit:focus, QTextEdit:focus {
+        border: 1px solid #4a90e2;
+      }
+      
+      /* Button Styling - Blue Theme */
+      QPushButton {
+        background-color: #4a90e2;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        min-width: 120px;
+      }
+      
+      QPushButton:hover {
+        background-color: #3a7bc8;
+      }
+      
+      QPushButton:pressed {
+        background-color: #2a6bb7;
+      }
+      
+      QPushButton:disabled {
+        background-color: #b0c4de;
+        color: #f0f0f0;
+      }
+      
+      /* Table Styling */
+      QTableWidget {
+        border: 1px solid #d1d9e6;
+        border-radius: 4px;
+        alternate-background-color: #f8f9fa;
+        font-size: 13px;
+        color: #000000;
+        selection-background-color: #e1e8f0;
+      }
+      
+      QHeaderView::section {
+        background-color: #e6ecf2;
+        padding: 8px;
+        border: none;
+        font-weight: bold;
+        color: #000000;
+      }
+      
+      /* Tab Widget Styling */
+      QTabWidget::pane {
+        border: 1px solid #d1d9e6;
+        border-radius: 4px;
+        background: #ffffff;
+        padding: 5px;
+      }
+      
+      QTabBar::tab {
+        padding: 8px 16px;
+        background: #e6ecf2;
+        border: 1px solid #d1d9e6;
+        border-bottom: none;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        margin-right: 2px;
+        color: #000000;
+      }
+      
+      QTabBar::tab:selected {
+        background: #ffffff;
+        border-bottom: 1px solid #ffffff;
+        margin-bottom: -1px;
+        color: #000000;
+      }
+      
+      /* Text Edit Styling */
+      QTextEdit {
+        color: #000000;
+        background: #ffffff;
+      }
+      
+      /* Combo Box Styling */
+      QComboBox {
+        border: 1px solid #d1d9e6;
+        border-radius: 4px;
+        padding: 6px;
+        min-width: 150px;
+        color: #000000;
+        background: #ffffff;
+      }
+      
+      QComboBox::drop-down {
+        subcontrol-origin: padding;
+        subcontrol-position: top right;
+        width: 20px;
+        border-left: 1px solid #d1d9e6;
+      }
+    </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="tabProfile">
+       <attribute name="title">
+        <string>Profile</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QGroupBox" name="doctorInfoGroup">
+          <property name="title">
+           <string>Doctor Login</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="doctorNameLabel">
+             <property name="text">
+              <string>Doctor Name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="doctorNameEdit"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="doctorCnicLabel">
+             <property name="text">
+              <string>CNIC:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="doctorCnicEdit">
+             <property name="placeholderText">
+              <string>XXXXX-XXXXXXX-X</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QPushButton" name="fetchDetailsBtn">
+               <property name="text">
+                <string>Fetch Details</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="doctorDetailsGroup">
+          <property name="title">
+           <string>Doctor Details</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_2">
+           <item row="8" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="departmentLabel">
+             <property name="text">
+              <string>Department:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="departmentCombo"/>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="availabilityEdit"/>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="availabilityLabel">
+             <property name="text">
+              <string>Availability:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QPushButton" name="updateAvailabilityBtn">
+             <property name="text">
+              <string>Update Availability</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1">
+            <widget class="QPushButton" name="updateDepartmentBtn">
+             <property name="text">
+              <string>Update Department</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="experienceLabel">
+             <property name="text">
+              <string>Experience:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="specialtyLabel">
+             <property name="text">
+              <string>Specialty:</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabAppointments">
+       <attribute name="title">
+        <string>Appointments</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QGroupBox" name="appointmentsGroup">
+          <property name="title">
+           <string>Appointments</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QTableWidget" name="appointmentsTable">
+             <property name="styleSheet">
+              <string notr="true">QTableWidget#appointmentsTable {
+  background-color: white;
+  alternate-background-color: white;
+}</string>
+             </property>
+             <column>
+              <property name="text">
+               <string>Patient Name</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Date</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Purpose</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Status</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Medical History</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="patientDetailsGroup">
+          <property name="title">
+           <string>Patient Details</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QLabel" name="selectedPatientLabel">
+               <property name="text">
+                <string>Selected Patient:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="selectedPatientEdit">
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="QLabel" name="appointmentStatusLabel">
+               <property name="text">
+                <string>Status:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="appointmentDateLabel">
+               <property name="text">
+                <string>Date:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_8"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="patientDetailsLabel">
+             <property name="text">
+              <string>Patient Details:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTextEdit" name="patientDetailsText">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="appointmentStatusGroup">
+          <property name="title">
+           <string>Appointment Status</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLabel" name="statusLabel">
+             <property name="text">
+              <string>Status:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="statusCombo">
+             <item>
+              <property name="text">
+               <string>completed</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>pending</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="updateStatusBtn">
+             <property name="text">
+              <string>Update Status</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabPrescription">
+       <attribute name="title">
+        <string>Prescription</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QGroupBox" name="prescriptionGroup">
+          <property name="title">
+           <string>Prescription</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QTextEdit" name="prescriptionEdit">
+             <property name="placeholderText">
+              <string>Enter prescription details...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QPushButton" name="prescribeBtn">
+               <property name="text">
+                <string>Prescribe</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

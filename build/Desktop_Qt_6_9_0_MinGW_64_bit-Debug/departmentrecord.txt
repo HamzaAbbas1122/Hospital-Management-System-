@@ -1,0 +1,5 @@
+1|Cardiology|Dr. Smith|10|15|50|100|Heart surgeries,ECG,Angioplasty
+2|Neurology|Dr. Johnson|8|12|40|80|EEG,Stroke rehab,Spinal tap
+3|Pediatrics|Dr. Lee|12|20|60|120|Vaccinations,Neonatal care,Child nutrition
+4|Orthopedics|Dr. Brown|6|10|30|60|Joint replacement,Fracture care,Sports medicine
+5|Oncology|Dr. Davis|5|8|25|50|Chemotherapy,Radiation therapy,Pain management

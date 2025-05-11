@@ -1,0 +1,10 @@
+T1001 | Complete Blood Count | 1200 | Active
+T1002 | Lipid Profile | 1800 | Active
+T1003 | Liver Function Test | 2000 | Active
+T1004 | Renal Function Test | 2200 | Inactive
+T1005 | Thyroid Stimulating Hormone | 2500 | Active
+T1006 | Hemoglobin A1C | 1500 | Active
+T1007 | COVID-19 PCR | 3000 | Active
+T1008 | Urine Analysis | 800 | Active
+T1009 | Vitamin D Test | 3500 | Active
+T1010 | ECG | 1200 | Inactive

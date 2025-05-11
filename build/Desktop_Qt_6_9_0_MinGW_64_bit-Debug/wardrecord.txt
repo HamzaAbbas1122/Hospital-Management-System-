@@ -1,0 +1,13 @@
+1|1|General Medicine|Sarah Johnson|15|30|8
+2|1|Cardiology|Michael Brown|10|20|6
+3|2|Pediatrics|Emily Davis|12|24|7
+4|2|Oncology|Robert Wilson|8|16|5
+5|3|Neurology|Lisa Miller|9|18|5
+6|3|Orthopedics|David Lee|11|22|6
+7|4|ICU|Jennifer Harris|6|12|4
+8|4|Emergency|Thomas Clark|7|14|4
+9|5|Maternity|Laura Adams|14|28|7
+10|5|Surgery|James Taylor|13|26|7
+2345 | 2345 | cfv | Male | 34 | 56 | 
+2345 | 2345 | cfv | Male | 34 | 56 | 
+32432 | 32432 | asdas | Male | 234 | 234 | 

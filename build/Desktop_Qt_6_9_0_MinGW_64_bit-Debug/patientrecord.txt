@@ -1,0 +1,19 @@
+1002 | Fatima Ahmsadsadsadasded | 1985-08-22 | Female | 45-A Commercial Area, Lahore | 0311-7654321 | Diabetes | Critical | Dr. Khan | 502 | 1 | 3 | 102 | 3
+1003 | Usman Malik | 1978-11-30 | Male | Plot 7, Clifton, Karachi | 0333-9876543 | Asthma | Stable | Dr. Shah | 503 | 2 | 1 | 201 | 1
+1004 | Ayesha Riaz | 1982-04-14 | Female | Street 5, Bahria Town, Rawalpindi | 0321-4567890 | Pneumonia | Improving | Dr. Hashmi | 504 | 2 | 2 | 202 | 4
+1005 | Bilal Akhtar | 1995-09-18 | Male | Flat 303, Gulberg III, Lahore | 0301-1122334 | Appendicitis | Post-Op | Dr. Qureshi | 505 | 3 | 1 | 301 | 2
+1006 | Hina Zafar | 1973-12-25 | Female | House 9, Satellite Town, Rawalpindi | 0334-5566778 | Migraine | Stable | Dr. Malik | 506 | 1 | 3 | 103 | 6
+1007 | Omar Farooq | 1988-04-05 | Male | Shop 24, Saddar, Peshawar | 0315-6677889 | Fracture | Recovering | Dr. Khan | 507 | 3 | 2 | 302 | 3
+1008 | Sana Jamal | 1992-08-12 | Female | Flat 12, DHA Phase 5, Karachi | 0307-8899001 | Bronchitis | Stable | Dr. Siddiqui | 508 | 2 | 1 | 203 | 5
+1009 | Imran Ashraf | 1965-01-30 | Male | House 45, Model Town, Multan | 0322-3344556 | Arthritis | Chronic | Dr. Raza | 509 | 1 | 2 | 104 | 1
+1010 | Nadia Hussain | 1970-06-08 | Female | Street 8, Cantt, Quetta | 0336-7788990 | Anemia | Stable | Dr. Baig | 510 | 3 | 3 | 303 | 4
+1011 | Kamran Ali | 1983-02-17 | Male | Plot 15, Gulshan-e-Iqbal, Karachi | 0314-9900112 | Gastritis | Improving | Dr. Farooq | 511 | 2 | 2 | 204 | 2
+1012 | Zara Khan | 1998-10-23 | Female | House 3, University Town, Peshawar | 0305-4433221 | Concussion | Observation | Dr. Akbar | 512 | 1 | 1 | 105 | 3
+1013 | Tariq Mahmood | 1975-07-04 | Male | Shop 5, Jinnah Road, Faisalabad | 0320-1122334 | Hypertension | Stable | Dr. Nadeem | 513 | 3 | 1 | 304 | 1
+1014 | Sadia Iqbal | 1980-12-19 | Female | Flat 8, Garden East, Karachi | 0331-5544667 | Pregnancy | Normal | Dr. Yasmin | 514 | 2 | 3 | 205 | 6
+1015 | Faisal Arif | 1993-03-28 | Male | House 22, Satellite Town, Gujranwala | 0302-7788990 | Flu | Recovering | Dr. Aslam | 515 | 1 | 2 | 106 | 4
+1016 | Mehak Saleem | 1968-09-15 | Female | Street 1, Cantt, Sialkot | 0317-6655443 | UTI | Stable | Dr. Hamid | 516 | 3 | 2 | 305 | 2
+1017 | Javed Iqbal | 1987-05-02 | Male | Plot 33, Defence, Lahore | 0335-8877665 | Allergies | Chronic | Dr. Mansoor | 517 | 2 | 1 | 206 | 5
+1018 | Rabia Aslam | 1972-11-11 | Female | House 7, Gulistan Colony, Sukkur | 0306-9988776 | Back Pain | Therapy | Dr. Khalid | 518 | 1 | 3 | 107 | 3
+1019 | Asadullah Khan | 1991-04-06 | Male | Flat 19, North Nazimabad, Karachi | 0323-4433221 | Sinusitis | Improving | Dr. Saleem | 519 | 3 | 3 | 306 | 1
+1020 | abdullah | 1984-08-24 | Female | House 14, Satellite Town, Hyderabad | 0987654321 | Depression | Treatment | Dr. Zubair | 520 | 2 | 2 | 207 | 4
